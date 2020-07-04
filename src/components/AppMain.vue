@@ -3,16 +3,23 @@
         <el-header>职业信息大数据平台</el-header>
         <el-container>
             <side-bar></side-bar>
-            <el-main>Main</el-main>
+            <el-main><div class="content">
+
+
+                        <occupation></occupation>
+
+
+            </div></el-main>
         </el-container>
     </el-container>
 </template>
 
 <script>
     import SideBar from "./sideBar";
+    import Occupation from "./occupation";
     export default {
         name: "AppMain",
-        components: {SideBar}
+        components: {Occupation, SideBar}
     }
 </script>
 

@@ -2,7 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from  '../src/view/index'
 import databoard from './view/databoard'
-import sideBar from "./components/sideBar";
+
+
+
+
+
+import salaryMap from "./components/salaryMap";
 
 
 Vue.use(Router)
@@ -14,7 +19,7 @@ export default new Router({
         {
             path: '/',
             name: 'index',
-            redirect: '/databoard1',
+            redirect: '/databoard',
             component: index
         },
         {
@@ -23,9 +28,9 @@ export default new Router({
             component: databoard
         },
         {
-            path: '/sidebar',
-            name: 'side',
-            component: sideBar
+            path: '/test',
+            name: 'sunrise',
+            component: salaryMap
         },
 
     ]
