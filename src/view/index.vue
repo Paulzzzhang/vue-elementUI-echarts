@@ -10,7 +10,11 @@
 <!--                </div>-->
 <!--            </el-image>-->
         </div>
-        <div id = "intro">   <el-link href="/#/databoard" target="_blank" underline>万维职谷</el-link></div>
+        <div><i id ="icon-fullscreen" @click="toggleFullscreen"></i></div>
+        <div id = "intro1">万维职谷</div>
+        <div id = "intro2">大数据职业信息分析及可视化平台</div>
+        <div id = "startButton" onclick="window.location.href = '/#/databoard'">开始</div>
+        <!-- <div id = "startButton">   <el-link href="/#/databoard" target="_blank">开始</el-link></div> -->
     </div>
 
 </template>
@@ -19,7 +23,7 @@
         name:"index",
         data() {
             return {
-                imgSrc: require('../assets/city.jpg')
+                imgSrc: require('../assets/earth.png')
             }
         }
     }
@@ -38,16 +42,43 @@
         width:100%;
         border:0;
     }
-    #intro{
+    #intro1{
         color:white;
         font-family: 微软雅黑;
-        font-size: 60px;
+        font-size: 57px;
+        letter-spacing:19px;
+        font-weight:bold;
         display:flex;  /*盒子模型*/
         flex-direction: row;  /*横向*/
         justify-content: space-around; /*主轴居中*/
         align-items: center; /*纵轴居中*/
         margin-top: 15%;
+    }
 
+    #intro2{
+        color:white;
+        font-family: 微软雅黑;
+        font-size: 15px;
+        letter-spacing:12px;
+        display:flex;  /*盒子模型*/
+        flex-direction: row;  /*横向*/
+        justify-content: space-around; /*主轴居中*/
+        align-items: center; /*纵轴居中*/
+        margin-top: 1%;
+    }
 
+    #startButton{
+        color:white;
+        font-family: 微软雅黑;
+        font-size: 17px;
+        letter-spacing:7px;
+        display:flex;  /*盒子模型*/
+        flex-direction: row;  /*横向*/
+        justify-content: space-around; /*主轴居中*/
+        align-items: center; /*纵轴居中*/
+        margin-top: 7%;
+        margin-left: 45.5%;
+        cursor:pointer;
+        width:100px;
     }
 </style>
