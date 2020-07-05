@@ -26,11 +26,12 @@
                     //速度
                     animationDuration: 3000,
                     title: {
-                        text: '访问量',
+                        text: '不同学历对应薪资',
+                        color: 'lightCyan',
                         textStyle: {
                             fontWeight: 'normal',
-                            fontSize: 16,
-                            color: '#F1F1F3'
+                            fontSize: 18,
+                            color: 'DarkCyan'
                         },
                         left: 20,
                         top: 20
@@ -48,10 +49,10 @@
                         itemWidth: 14,
                         itemHeight: 5,
                         itemGap: 13,
-                        data: ['北京', '上海', '广州'],
+                        data: ['北京', '上海', '广州','全国'],
                         textStyle: {
                             fontSize: 12,
-                            color: '#F1F1F3'
+                            color: 'darkCyan'
                         },
                         right: 20,
                         top: 30
@@ -71,7 +72,7 @@
                                 color: '#57617B'
                             }
                         },
-                        data: ['13:00', '13:05', '13:10', '13:15', '13:20', '13:25', '13:30', '13:35', '13:40', '13:45', '13:50', '13:55']
+                        data: ['初中', '高中', '大专', '本科', '硕士', '博士']
                         // }, {
                         //   axisPointer: {
                         //     show: false
@@ -95,7 +96,8 @@
                     }],
                     yAxis: [{
                         type: 'value',
-                        name: '单位（%）',
+                        name: '单位(元)',
+                        color: 'lightCyan',
                         axisTick: {
                             show: false
                         },
@@ -153,6 +155,7 @@
                         name: '上海',
                         type: 'line',
                         smooth: true,
+                        color: 'lightCyan',
                         symbol: 'circle',
                         symbolSize: 5,
                         showSymbol: false,
@@ -215,7 +218,42 @@
                             }
                         },
                         data: [220, 182, 125, 145, 122, 191, 134, 150, 120, 110, 165, 122]
-                    }, ]
+                    },
+                        {
+                            name: '全国',
+                            type: 'line',
+                            smooth: true,
+                            symbol: 'circle',
+                            symbolSize: 5,
+                            showSymbol: false,
+                            lineStyle: {
+                                normal: {
+                                    width: 1
+                                }
+                            },
+                            areaStyle: {
+                                normal: {
+                                    color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                        offset: 0,
+                                        color: 'rgba(137, 189, 27, 0.3)'
+                                    }, {
+                                        offset: 0.8,
+                                        color: 'rgba(137, 189, 27, 0)'
+                                    }], false),
+                                    shadowColor: 'rgba(0, 0, 0, 0.1)',
+                                    shadowBlur: 10
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: 'rgb(255,255,0)',
+                                    borderColor: 'rgba(137,189,2,0.27)',
+                                    borderWidth: 12
+                                }
+                            },
+                            data: [ 125, 145, 122, 165, 122,220, 182, 191, 134, 150, 120, 110]
+                        },
+                    ]
                 }
                 myChart.setOption(options)
             }
@@ -225,6 +263,6 @@
 <style lang="scss" scoped>
     #roundLineChart{
         width: 100%;
-        height: 400px;
+        height: 570px;
     }
 </style>

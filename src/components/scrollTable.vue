@@ -56,7 +56,7 @@
     },
     data() {
       return {
-        isrc: this.src,
+        isrc: this.sourceLink,
 
         listData: [{
           title: '钱花哪了?一图带你读懂年轻人的消费观',
@@ -118,7 +118,7 @@
       }
     },
     props:{
-      src: String,
+      sourceLink: String,
 
   },
 
@@ -138,7 +138,7 @@
       }
     },
     mounted() {
-      console.log(this.src)
+      console.log(this.sourceLink)
     },
     methods: {
 

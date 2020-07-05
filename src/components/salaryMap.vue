@@ -246,7 +246,7 @@
                             top: "10",
                             textStyle: {
                             color: '#000',
-                                fontSize: 14
+                                fontSize: 20
                         }
                     },
                     tooltip: {
@@ -261,7 +261,7 @@
                         seriesIndex: 0,
                         text: ['bar3D'],
                         calculable: true,
-                        max: 300,
+                        max: 500,
                         inRange: {
                             color: ['#87aa66', '#eba438', '#d94d4c']
                         }
@@ -280,7 +280,7 @@
                         map: 'china',
                         roam: true,
                         itemStyle: {
-                        areaColor: '#1d5e98',
+                        areaColor: '#87aa66',
                             opacity: 1,
                             borderWidth: 0.4,
                             borderColor: '#000'
@@ -312,7 +312,7 @@
                                 //shadowQuality: 'high', //阴影亮度
                                 shadow: false, //是否显示阴影
                                 alpha:55,
-                                beta:10
+                                beta:30
 
                         },
                         ambient: {
@@ -321,6 +321,7 @@
                     }
                 },
                     series: [
+
                         //柱状图
                         {
                             name: 'bar3D',
@@ -329,6 +330,7 @@
                             barSize: 1, //柱子粗细
                             shading: 'lambert',
                             opacity: 1,
+                            color: 'darkCyan',
                             bevelSize:0.3,
                             label: {
                                 show: false,
@@ -842,6 +844,6 @@
     #salaryMap{
         width: 100%;
         height: 600px;
-        opacity:0.5;
+
     }
 </style>

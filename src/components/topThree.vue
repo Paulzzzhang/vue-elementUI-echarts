@@ -44,6 +44,9 @@
         components: {},
         data(){
             return{
+                first:  require('../assets/first.png'),
+                second:  require('../assets/second.png'),
+                third:  require('../assets/third.png'),
                 options: [{
                     value: '选项1',
                     label: '北京'
@@ -72,7 +75,7 @@
                         color: 'rgba(41, 121, 255, 1)' // 0% 处的颜色
                     }, {
                         offset: 1,
-                        color: 'rgba(0, 192, 255, 1)' // 100% 处的颜色
+                        color: 'rgb(0,102,255)' // 100% 处的颜色
                     }],
                     globalCoord: false // 缺省为 false
                 },
@@ -94,7 +97,7 @@
                 let myChart = this.$echarts.init(document.getElementById('topThree'))
                 let options={
                     tooltip: {
-                        show: false
+                        show: true
                     },
                     grid: {
                         top: '20%',
@@ -103,13 +106,14 @@
                         bottom: '15%',
                     },
                     xAxis: {
-                        data: ['平均CPU\n利用率', '平均内存\n利用率', '平均硬盘\n利用率'],
+                        //todo 行业
+                        data: ['平均CPU\n利用率', '平均内存\n利用率', '平均硬盘\n利用率','平均行业\n利用率','平均行业\n利用率'],
                         offset: 15,
                         axisTick: {
-                            show: false
+                            show: true
                         },
                         axisLine: {
-                            show: false
+                            show: true
                         },
                         axisLabel: {
                             color: '#fff',
@@ -146,14 +150,14 @@
                             color: this.lightBlue
                         },
                         barWidth: '40%',
-                        data: [49, 80, 67],
+                        data: [49, 80, 67,95,45],
                         z: 10
                     }, {
                         type: 'bar',
                         barGap: '-100%',
                         itemStyle: {
                             color: {
-                                // image: this.piePatternImg,
+                               // image: this.piePatternImg,
                                 repeat: 'repeat'
                             },
                             opacity: 0.05
@@ -171,29 +175,10 @@
                         },
                         barWidth: '40%',
 
-                        data: [100, 100, 100],
+                        data: [100, 100, 100,100,100],
                         z: 5
-                    }, {
-                        name: 'glyph',
-                        type: 'pictorialBar',
-                        barGap: '-100%',
-                        symbolPosition: 'end',
-                        symbolSize: 64,
-                        symbolOffset: [0, '-150%'],
-                        data: [{
-                            value: 100,
-                            //todo 圖片
-                            // symbol: this.cpu,
-                        }, {
-                            value: 100,
-                            //todo
-                            // symbol: this.memory,
-                        }, {
-                            value: 100,
-                            // symbol: this.disk,
-                        }]
                     }],
-                    backgroundColor: "#0c1914",
+                    backgroundColor: "#17818b",
                 }
                 myChart.setOption(options)
             }
@@ -203,14 +188,12 @@
 
 <style lang="scss" scoped>
     #topThree{
-        width: 50%;
-        height: 600px;
+        width: 100%;
+        height: 500px;
     }
     .el-card{
         margin-top:20px; //下边距
     }
-    #selector{
-        margin: auto auto;
-    }
+
 
 </style>

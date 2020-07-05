@@ -1,6 +1,35 @@
 <template>
     <div>
-        <div id = "skillCloud"></div>
+        <el-row :gutter="20">
+            <el-col :span="24">
+                <el-card shadow="hover">
+                    <div >
+                        <el-col :span="4">
+                            <el-select v-model="value" filterable placeholder="请选择">
+                                <el-option
+                                        v-for="item in options"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </el-col>
+
+                        <div style="margin-left: 10px">
+                            <el-button icon="el-icon-search" circle></el-button>
+                        </div>
+
+                    </div>
+
+                </el-card>
+            </el-col>
+            <el-col :span="24">
+                <el-card shadow="hover">
+                    <div id = "skillCloud"></div>
+                </el-card>
+            </el-col>
+
+        </el-row>
     </div>
 </template>
 
@@ -30,6 +59,9 @@
                         type: "wordCloud",
                         gridSize:6,
                         shape:'circle',
+
+
+
                         sizeRange: [12, 50],
                         width:800,
                         height:500,
@@ -1239,7 +1271,10 @@
 </script>
 <style lang="scss" scoped>
     #skillCloud{
-        width: 50%;
-        height: 600px;
+        width: 100%;
+        height: 500px;
+    }
+    .el-card{
+        margin-top: 20px;
     }
 </style>

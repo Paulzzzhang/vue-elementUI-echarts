@@ -687,10 +687,11 @@
                 let myChart = this.$echarts.init(document.getElementById('sunrise'))
                 let option = {
                     title: {
-                        text: 'WORLD COFFEE RESEARCH SENSORY LEXICON',
-                        subtext: 'Source: https://worldcoffeeresearch.org/work/sensory-lexicon/',
+                        text: '不同类型岗位分布',
+                        subtext: 'Source: /lagou/58job/51job/liepin',
                         textStyle: {
-                            fontSize: 14,
+                            fontSize: 20,
+                            fontFamily: 'Consolas',
                             align: 'center'
                         },
                         subtextStyle: {

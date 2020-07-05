@@ -19,8 +19,8 @@ export default {
 			this.chartInit()
 		},
 		chartInit() {
-			let hours = ['微课', '课件', '测验', '微课程'];
-			let days = ['星期一', '星期二', '星期三', '星期四'];
+			let hours = ['初中', '高中', '大专', '本科','硕士','博士'];
+			let days = ['不限', '一年', '一到三年', '三到五年','五到十年','十年以上'];
 			let data = [
 				[0, 0, 5],
 				[0, 1, 1],
@@ -42,12 +42,12 @@ export default {
 			let myChart = this.$echarts.init(document.getElementById('bar3DChart'))
 			let options = {
 				title: {
-					text: '第13周报告',
+					text: '薪资-学历-经验',
 					textStyle: {
 						fontSize: 18,
 						fontWeight: 600,
 						fontFamily: 'siyuanheiti_Thin',
-						color: '#ffffff'
+						color: '#3b8060'
 					},
 					top: 10,
 					left: 10,
@@ -58,7 +58,7 @@ export default {
 					}
 				},
 				tooltip: {
-					show: false
+					show: true
 				},
 				visualMap: {
 					show: false,
@@ -97,14 +97,15 @@ export default {
 					}
 				},
 				grid3D: {
-					boxWidth: 120,
-					boxDepth: 120,
+					//todo 大小
+					boxWidth: 200,
+					boxDepth: 180,
 					axisTick: {
 						show: false
 					},
 					axisLine: {
 						lineStyle: {
-							color: '#ccc',
+							color: '#206353',
 							width: 1
 						}
 					},
@@ -129,7 +130,7 @@ export default {
 						beta: 40,
 						autoRotate: true,
 						zoomSensitivity: 0,
-						autoRotateAfterStill: 5,
+						autoRotateAfterStill: 1,
 						distance: 250
 					}
 				},
@@ -157,7 +158,7 @@ export default {
 					itemStyle: {
 						opacity: 1
 					},
-					/*emphasis: {
+					emphasis: {
 							label: {
 									textStyle: {
 											fontSize: 20,
@@ -167,7 +168,7 @@ export default {
 							itemStyle: {
 									color: '#900'
 							}
-					}*/
+					}
 				}]
 			}
 			myChart.setOption(options)
@@ -178,6 +179,6 @@ export default {
 <style lang="scss" scoped>
 #bar3DChart{
 	width: 100%;
-	height: 400px;
+	height: 550px;
 }
 </style>

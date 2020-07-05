@@ -4,7 +4,7 @@
         <el-row :gutter="20">
             <el-col :span="12">
                 <el-card shadow="hover">
-                    <scroll-table :src="isrc"></scroll-table>
+                    <scroll-table :sourceLink="isrc"></scroll-table>
                 </el-card>
             </el-col>
             <el-col :span="12">
