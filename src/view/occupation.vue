@@ -4,7 +4,7 @@
         <el-row :gutter="20">
             <el-col :span="12">
                 <el-card shadow="hover">
-                    <scroll-table></scroll-table>
+                    <scroll-table :src="isrc"></scroll-table>
                 </el-card>
             </el-col>
             <el-col :span="12">
@@ -23,6 +23,12 @@
     import roundLineChart from "../components/roundLineChart";
     export default {
         name: "occupation",
+        data(){
+            return{
+                isrc: "localhost/index",
+
+            }
+        },
         components: {ScrollTable,roundLineChart}
     }
 </script>

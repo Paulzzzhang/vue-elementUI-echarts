@@ -56,6 +56,8 @@
     },
     data() {
       return {
+        isrc: this.src,
+
         listData: [{
           title: '钱花哪了?一图带你读懂年轻人的消费观',
           date: '2020-05-05',
@@ -115,6 +117,11 @@
         }]
       }
     },
+    props:{
+      src: String,
+
+  },
+
     computed: {
       optionSetting () {
         return {
@@ -131,7 +138,7 @@
       }
     },
     mounted() {
-
+      console.log(this.src)
     },
     methods: {
 

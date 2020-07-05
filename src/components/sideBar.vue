@@ -12,7 +12,7 @@
                     <span slot="title">岗位信息</span>
                 </template>
                 <el-menu-item-group v-model="value" @change="lineTo" router="true" >
-                    <span slot="title">分组一</span>
+
                     <el-menu-item  index="/occupation/differOccupation">不同岗位薪资</el-menu-item>
                     <el-menu-item index="/occupation/differIndustry">不同行业平均薪资</el-menu-item>
                     <el-menu-item index="/occupation/differOccuEduBack">不同岗位的学历要求</el-menu-item>
@@ -37,46 +37,35 @@
                     <span slot="title">地区</span>
                 </template>
                 <el-menu-item-group v-model="value" @change="lineTo">
-                    <span slot="title">分组一</span>
+
                     <el-menu-item index="/location/differLocationSa">不同地区的平均薪资分析</el-menu-item>
                     <el-menu-item index="/location/differLocationIn">不同地域的行业分析</el-menu-item>
-                    <el-menu-item index="/location/compareTwoCity">比较两个地区的行业分布</el-menu-item>
+                    <el-menu-item index="/location/compareTwoCities">比较两个地区的行业分布</el-menu-item>
 
                 </el-menu-item-group>
 
             </el-submenu>
-            <el-submenu index="">
+            <el-submenu index="4 ">
                 <template slot="title">
                     <i class="el-icon-document"></i>
                     <span slot="title">招聘需求</span>
                 </template>
                 <el-menu-item-group v-model="value" @change="lineTo">
-                    <span slot="title">分组一</span>
+
                     <el-menu-item index="/demand/differIndustry">不同行业的需求人数分析</el-menu-item>
                     <el-menu-item index="/demand/requirements">行业需求关键词</el-menu-item>
                 </el-menu-item-group>
 
             </el-submenu>
-            <el-submenu index="">
+            <el-submenu index="5">
                 <template slot="title">
                     <i class="el-icon-monitor"></i>
                     <span slot="title">互联网</span>
                 </template>
                 <el-menu-item-group v-model="value" @change="lineTo">
-                    <span slot="title">分组一</span>
+
                     <el-menu-item index="/InternetInfo">互联网行业</el-menu-item>
-                    <el-menu-item index="4-2">选项2</el-menu-item>
-                    <el-menu-item index="4-3">选项2</el-menu-item>
-                    <el-menu-item index="4-4">选项2</el-menu-item>
-                    <el-menu-item index="4-5">选项2</el-menu-item>
                 </el-menu-item-group>
-                <el-menu-item-group title="分组2">
-                    <el-menu-item index="1-3">选项3</el-menu-item>
-                </el-menu-item-group>
-                <el-submenu index="1-4">
-                    <span slot="title">选项4</span>
-                    <el-menu-item index="1-4-1">选项1</el-menu-item>
-                </el-submenu>
             </el-submenu>
 
 
