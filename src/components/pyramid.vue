@@ -1,54 +1,98 @@
 
 <template>
-    <el-row :gutter="20">
-        <el-col :span="24">
-            <el-card shadow="hover">
-                <div class="wrap-container trigle">
-                    <div class="back_img3"></div>
-                    <div class="back_img"></div>
-                    <div class="back_img1"></div>
-                    <div class="back_img2"></div>
-                    <ul :class="{first: index === 0, second: index === 1, third: index === 2, four: index === 3}" v-for="(item, index) in arrData" v-bind:key="index">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
+    <div>
 
-                    <div class="detail" :class="`detail_${index + 1}`" v-for="(item, index) in arrData" :key="index">
-                        <div class="detail_txt" :class="`detail_txt${index + 1}`">
+        <el-row :gutter="20">
+            <el-col :span="12">
+                <el-card shadow="hover">
+                    <div class="wrap-container trigle">
+                        <div class="back_img3"></div>
+                        <div class="back_img"></div>
+                        <div class="back_img1"></div>
+                        <div class="back_img2"></div>
+                        <ul :class="{first: index === 0, second: index === 1, third: index === 2, four: index === 3}" v-for="(item, index) in arrData" v-bind:key="index">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+                        <div class="detail" :class="`detail_${index + 1}`" v-for="(item, index) in arrData" :key="index">
+                            <div class="detail_txt" :class="`detail_txt${index + 1}`">
         <span class="precent_txt" :class="`precent_txt${index + 1}`">
           <div class="chartsdom" :id="`chart_${index + 1}`"></div>
         </span>
-                            <div class="txt_right" :class="`txt_right${index + 1}`">
+                                <div class="txt_right" :class="`txt_right${index + 1}`">
           <span>
             <div class="f_div" :class="{aharrow_up: index === 0 || index == 1, aharrow_down: index == 2 || index == 3}">{{ item.post }}</div>
             <div class="s_div" :class="`s_div${index + 1}`">{{ item.number }}人</div>
           </span>
+                                </div>
+                            </div>
+                            <div class="arrow_contain" :class="`arrow_contain${index + 1}`">
+                                <span class="arrow" :class="`arrow_${index + 1}`"></span>
                             </div>
                         </div>
-                        <div class="arrow_contain" :class="`arrow_contain${index + 1}`">
-                            <span class="arrow" :class="`arrow_${index + 1}`"></span>
-                        </div>
+
                     </div>
 
-                </div>
+                </el-card>
+            </el-col>
+            <el-col :span="12">
+                <el-card shadow="hover">
+                    <div style="height: 500px">
+                        <el-col :span="9">
+                            <el-select v-model="value" filterable placeholder="请选择">
+                                <el-option
+                                        v-for="item in options"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </el-col>
 
-            </el-card>
-        </el-col>
-    </el-row>
+                        <div style="margin-left: 10px">
+                            <el-button icon="el-icon-search" circle></el-button>
+                        </div>
+
+                    </div>
+
+                </el-card>
+            </el-col>
+        </el-row>
+    </div>
+
 
 
 </template>
 
 <script>
+    //import Selector from "./selector";
     export default {
         name: "pyramid",
+        components: {},
         data() {
             return {
-                option: null,
+                options: [{
+                    value: '选项1',
+                    label: '北京'
+                }, {
+                    value: '选项2',
+                    label: '上海'
+                }, {
+                    value: '选项3',
+                    label: '重庆'
+                }, {
+                    value: '选项4',
+                    label: '深圳'
+                }, {
+                    value: '选项5',
+                    label: '成都'
+                }],
+                value: '',
                 arrData: [{
                     post: '大专及以下',
                     number: 158
@@ -83,7 +127,7 @@
         methods: {
             getEchart(dom, data) {
                 let sum = (Math.round( (data.number / this.sum) * 10000 ) / 100).toFixed(1);
-                let myChart = this.echarts.init(document.getElementById(dom));
+                let myChart = this.$echarts.init(document.getElementById(dom));
                 this.option = {
                     color: [data.color, '#333'],
                     series: [
@@ -146,8 +190,8 @@
     .trigle {
         //margin: 0 auto;
         //todo 修改样式
-        width: 2000px;
-        height: 600px;
+        width: 700px;
+        height: 500px;
         .back_img {
             position: absolute;
 

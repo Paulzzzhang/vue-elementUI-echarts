@@ -1,14 +1,44 @@
 <template>
     <div>
-        <div id = "topThree"></div>
+
+        <el-row :gutter="20">
+            <selector></selector>
+            <el-col :span="24" >
+                <el-card shadow="hover">
+                    <div id = "topThree"></div>
+                </el-card>
+            </el-col>
+
+        </el-row>
+
+
     </div>
 </template>
 
 <script>
+
+    import Selector from "./selector";
     export default {
         name: "topThree",
+        components: {Selector},
         data(){
             return{
+                options: [{
+                    value: '选项1',
+                    label: '北京'
+                }, {
+                    value: '选项2',
+                    label: '上海'
+                }, {
+                    value: '选项3',
+                    label: '重庆'
+                }, {
+                    value: '选项4',
+                    label: '深圳'
+                }, {
+                    value: '选项5',
+                    label: '成都'
+                }],
                 lightBlue :{
                     type: 'linear',
                     x: 0,
@@ -154,4 +184,11 @@
         width: 50%;
         height: 600px;
     }
+    .el-card{
+        margin-top:20px; //下边距
+    }
+    #selector{
+        margin: auto auto;
+    }
+
 </style>

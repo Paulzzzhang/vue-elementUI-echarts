@@ -21,7 +21,7 @@ import radialChart from "./components/radialChart";
 import topThree from "./components/topThree";
 import manCount from "./components/manCount";
 import skillCloud from "./components/skillCloud";
-
+import selector from "./components/selector";
 Vue.use(Router)
 
 
@@ -129,6 +129,11 @@ export default new Router({
                     component: occupation
                 }
             ]
+        },
+        {
+            path: '/test',
+            name: 'test',
+            component: selector,
         }
 
     ]
