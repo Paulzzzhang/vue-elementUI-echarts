@@ -141,7 +141,7 @@
                             // symbol: this.disk,
                         }]
                     }],
-                    backgroundColor: "#190c12",
+                    backgroundColor: "#0c1914",
                 }
                 myChart.setOption(options)
             }

@@ -1,9 +1,12 @@
 <template>
     <div>
-        <div id = "horizontalBar">
-
-        </div>
+        <div id = "horizontalBar"></div>
     </div>
+
+
+
+
+
 </template>
 
 <script>

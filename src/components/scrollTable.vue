@@ -1,7 +1,7 @@
 <template>
   <div class="wrap-container sn-container">
     <div class="sn-content">
-      <div class="sn-title">新闻无缝滚动</div>
+
       <div class="sn-body">
         <div class="wrap-container">
 
@@ -22,7 +22,7 @@
               </tbody>
             </table>
 
-            <vue-seamless-scroll :data="listData" class="seamless-warp" :class-option="optionSetting">
+            <vue-seamless-scroll :data="listData" class="seamless-warp" :class-option="optionSetting" style="background-color: lightblue">
               <table border="0" cellpadding="0" cellspacing="0" class="item">
                 <tbody>
                 <tr v-for="(item, index) in listData" :key="index">
@@ -118,7 +118,7 @@
     computed: {
       optionSetting () {
         return {
-          step: 0.5, // 数值越大速度滚动越快
+          step: 1.0, // 数值越大速度滚动越快
           limitMoveNum: 10, // 开始无缝滚动的数据量 this.dataList.length
           hoverStop: true, // 是否开启鼠标悬停stop
           direction: 1, // 0向下 1向上 2向左 3向右
@@ -144,11 +144,13 @@
 
 <style lang="scss" scoped>
   .sn-container {
+
     left: 1370px;
     top: 110px;
+    height: 500px;
     %table-style {
       width: 100%;
-      height: 35px;
+      height: 40px;
       table-layout: fixed;
       tr {
         td {
@@ -167,7 +169,7 @@
         @extend %table-style;
       }
       .seamless-warp {
-        height: 229px;
+        height: 400px;
         overflow: hidden;
         visibility: visible;
         .colorRed {

@@ -241,7 +241,7 @@
                 let myChart = this.$echarts.init(document.getElementById('salaryMap'))
                 let options={
                     title: {
-                        text: '测试bar3D、scatter3D、geo3D',
+                        text: '不同地区平均薪资',
                             x: 'left',
                             top: "10",
                             textStyle: {
@@ -818,7 +818,7 @@
                                 trailWidth: 1,
                                 trailOpacity: 0.5,
                                 trailLength: 0.2,
-                                constantSpeed: 5
+                                constantSpeed: 1
                             },
 
                             blendMode: 'lighter',
@@ -840,7 +840,8 @@
 
 <style lang="scss" scoped>
     #salaryMap{
-        width: 50%;
+        width: 100%;
         height: 600px;
+        opacity:0.5;
     }
 </style>

@@ -1,37 +1,44 @@
 
 <template>
-    <div class="wrap-container trigle">
-        <div class="back_img3"></div>
-        <div class="back_img"></div>
-        <div class="back_img1"></div>
-        <div class="back_img2"></div>
-        <ul :class="{first: index === 0, second: index === 1, third: index === 2, four: index === 3}" v-for="(item, index) in arrData" v-bind:key="index">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+    <el-row :gutter="20">
+        <el-col :span="24">
+            <el-card shadow="hover">
+                <div class="wrap-container trigle">
+                    <div class="back_img3"></div>
+                    <div class="back_img"></div>
+                    <div class="back_img1"></div>
+                    <div class="back_img2"></div>
+                    <ul :class="{first: index === 0, second: index === 1, third: index === 2, four: index === 3}" v-for="(item, index) in arrData" v-bind:key="index">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
 
-        <div class="detail" :class="`detail_${index + 1}`" v-for="(item, index) in arrData" :key="index">
-            <div class="detail_txt" :class="`detail_txt${index + 1}`">
+                    <div class="detail" :class="`detail_${index + 1}`" v-for="(item, index) in arrData" :key="index">
+                        <div class="detail_txt" :class="`detail_txt${index + 1}`">
         <span class="precent_txt" :class="`precent_txt${index + 1}`">
           <div class="chartsdom" :id="`chart_${index + 1}`"></div>
         </span>
-                <div class="txt_right" :class="`txt_right${index + 1}`">
+                            <div class="txt_right" :class="`txt_right${index + 1}`">
           <span>
             <div class="f_div" :class="{aharrow_up: index === 0 || index == 1, aharrow_down: index == 2 || index == 3}">{{ item.post }}</div>
             <div class="s_div" :class="`s_div${index + 1}`">{{ item.number }}人</div>
           </span>
-                </div>
-            </div>
-            <div class="arrow_contain" :class="`arrow_contain${index + 1}`">
-                <span class="arrow" :class="`arrow_${index + 1}`"></span>
-            </div>
-        </div>
+                            </div>
+                        </div>
+                        <div class="arrow_contain" :class="`arrow_contain${index + 1}`">
+                            <span class="arrow" :class="`arrow_${index + 1}`"></span>
+                        </div>
+                    </div>
 
-    </div>
+                </div>
+
+            </el-card>
+        </el-col>
+    </el-row>
 
 
 </template>
@@ -43,16 +50,16 @@
             return {
                 option: null,
                 arrData: [{
-                    post: '技术经理',
+                    post: '大专及以下',
                     number: 158
                 },{
-                    post: 'Java工程师',
+                    post: '本科',
                     number: 572
                 },{
-                    post: '前端工程师',
+                    post: '硕士',
                     number: 826
                 },{
-                    post: '项目经理',
+                    post: '博士',
                     number: 66
                 }],
                 color: ['#45fed4', '#84a9ef', '#f1e04f', '#dbfe73'],
@@ -137,12 +144,13 @@
 
 <style lang="scss" scoped>
     .trigle {
-        left: 600px;
-        top: 150px;
-        width: 720px;
-        height: 500px;
+        //margin: 0 auto;
+        //todo 修改样式
+        width: 2000px;
+        height: 600px;
         .back_img {
             position: absolute;
+
             top: 195px;
             width: 100%;
             height: 300px;
@@ -151,6 +159,7 @@
             background-size: 80% 84%;
         }
         .back_img1 {
+
             position: absolute;
             left: 0;
             top: 18%;

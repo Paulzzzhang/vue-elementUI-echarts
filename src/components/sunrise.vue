@@ -1,6 +1,10 @@
 <template>
     <div>
-        <div ><div id="sunrise"></div></div>
+        <div>
+
+                <div id="sunrise"></div>
+
+        </div>
     </div>
 </template>
 
@@ -742,6 +746,6 @@
 <style lang="scss" scoped>
     #sunrise{
         width: 100%;
-        height: 400px;
+        height: 600px;
     }
 </style>
