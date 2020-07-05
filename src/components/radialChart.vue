@@ -6,7 +6,7 @@
         <el-card shadow="hover">
           <div style>
             <el-col :span="4">
-              <el-select v-model="value" filterable placeholder="请选择">
+              <el-select v-model="firstCity" filterable placeholder="请选择">
                 <el-option
                         v-for="item in options"
                         :key="item.value"
@@ -16,7 +16,7 @@
               </el-select>
             </el-col>
             <el-col :span="4">
-              <el-select v-model="value" filterable placeholder="请选择">
+              <el-select v-model="secondCity" filterable placeholder="请选择">
                 <el-option
                         v-for="item in options"
                         :key="item.value"
@@ -69,6 +69,8 @@ export default {
         value: '选项5',
         label: '成都'
       }],
+      firstCity: '',
+      secondCity: '',
       titleData: [],
       typeStander: [],
       typeData: []

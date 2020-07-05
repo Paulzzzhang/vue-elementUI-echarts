@@ -2,7 +2,28 @@
     <div>
 
         <el-row :gutter="20">
-            <selector></selector>
+            <el-col :span="24">
+                <el-card shadow="hover">
+                    <div style>
+                        <el-col :span="4">
+                            <el-select v-model="value" filterable placeholder="请选择">
+                                <el-option
+                                        v-for="item in options"
+                                        :key="item.value"
+                                        :label="item.label"
+                                        :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </el-col>
+
+                        <div style="margin-left: 10px">
+                            <el-button icon="el-icon-search" circle></el-button>
+                        </div>
+
+                    </div>
+
+                </el-card>
+            </el-col>
             <el-col :span="24" >
                 <el-card shadow="hover">
                     <div id = "topThree"></div>
@@ -17,10 +38,10 @@
 
 <script>
 
-    import Selector from "./selector";
+
     export default {
         name: "topThree",
-        components: {Selector},
+        components: {},
         data(){
             return{
                 options: [{
@@ -39,6 +60,7 @@
                     value: '选项5',
                     label: '成都'
                 }],
+                value:'',
                 lightBlue :{
                     type: 'linear',
                     x: 0,
