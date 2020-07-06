@@ -9,45 +9,37 @@
             </el-col>
             <el-col :span="12">
                 <el-card shadow="hover">
-                   <bar3-d-chart></bar3-d-chart>
+                    <language-bar></language-bar>
                 </el-card>
             </el-col>
             <el-col :span="12">
                 <el-card shadow="hover">
-                    <horizontal-bar></horizontal-bar>
+                    <dynamicpie></dynamicpie>
                 </el-card>
             </el-col>
-            <el-col :span="12">
-                <el-card shadow="hover">
-                    <man-count></man-count>
-                </el-card>
-            </el-col>
+            
         </el-row>
 
     </div>
-
 </template>
 
 <script>
-    import ScrollTable from "../components/scrollTable";
-
-    import HorizontalBar from "../components/horizontalBar";
-
-    import ManCount from "../components/manCount";
-    import Bar3DChart from "../components/bar3DChart";
+    import languageBar from "../components/languageBar";
+    import scrollTable from "../components/scrollTable";
+    import Dynamicpie from "../components/dynamicpie";
     export default {
-        name: "occupation",
-        data(){
-            return{
-                isrc: "localhost/index",
-
-            }
-        },
-        components: {Bar3DChart, ManCount,   HorizontalBar, ScrollTable}
+        name: "InternetInfo",
+        components:{
+            Dynamicpie,
+            languageBar,scrollTable
+        }
     }
 </script>
 
 <style scoped>
+    .el-card{
+        margin-top: 20px;
+    }
     .el-row {
         margin-bottom: 20px;
     }

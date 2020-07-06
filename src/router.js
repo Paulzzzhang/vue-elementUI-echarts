@@ -21,7 +21,9 @@ import radialChart from "./components/radialChart";
 import topThree from "./components/topThree";
 import manCount from "./components/manCount";
 import skillCloud from "./components/skillCloud";
-import dynamicpie from "./components/dynamicpie";
+
+import languageBar from "./components/languageBar";
+import InternetInfo from "./view/InternetInfo";
 Vue.use(Router)
 // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
 const originalPush = Router.prototype.push
@@ -130,14 +132,14 @@ export default new Router({
             children: [
                 {
                     path: '/',
-                    component: occupation
+                    component: InternetInfo
                 }
             ]
         },
         {
             path: '/test',
             name: 'test',
-            component: dynamicpie,
+            component: languageBar,
         }
 
     ]
