@@ -151,13 +151,14 @@
 
 <style lang="scss" scoped>
   .sn-container {
-
+    margin-top: 50px;
     left: 1370px;
     top: 110px;
     height: 500px;
     %table-style {
+      background-color: #01ddb2;
       width: 100%;
-      height: 40px;
+      height: 50px;
       table-layout: fixed;
       tr {
         td {

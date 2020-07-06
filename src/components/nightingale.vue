@@ -36,6 +36,14 @@
                             color: '#fff',
                         }
                     },
+                    title: {
+                        "text": "各企业规模平均薪资",
+                        "left": "center",
+                        "top": 20,
+                        "textStyle": {
+                            "color": "#ccc"
+                        }
+                    },
                     calculable: true,
                     series: [{
                         title: '各规模企业薪资分析',
@@ -45,7 +53,7 @@
                         //起始角度，支持范围[0, 360]
                         startAngle: 0,
                         //饼图的半径，数组的第一项是内半径，第二项是外半径
-                        radius: [41, 153.75],
+                        radius: [41, 200],
                         //支持设置成百分比，设置成百分比时第一项是相对于容器宽度，第二项是相对于容器高度
                         center: ['50%', '35%'],
                         //是否展示成南丁格尔图，通过半径区分数据大小。可选择两种模式：
@@ -300,7 +308,7 @@
 <style lang="scss" scoped>
     #nightingale{
         width: 100%;
-        height: 700px;
+        height: 600px;
     }
 </style>
 

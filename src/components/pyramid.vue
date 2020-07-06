@@ -40,9 +40,9 @@
 
                 </el-card>
             </el-col>
-            <el-col :span="12">
-                <el-card shadow="hover">
-                    <div style="height: 500px">
+                 <el-col :span="12">
+                    <el-card shadow="hover">
+                    <div style="height: 70px">
                         <el-col :span="9">
                             <el-select v-model="value" filterable placeholder="请选择">
                                 <el-option
@@ -59,9 +59,18 @@
                         </div>
 
                     </div>
+                    <el-col :span="24">
+                        <el-card shadow="hover">
+                            <bar-stack></bar-stack>
+                        </el-card>
+                    </el-col>
 
                 </el-card>
-            </el-col>
+
+
+
+        </el-col>
+
         </el-row>
     </div>
 
@@ -71,9 +80,11 @@
 
 <script>
     //import Selector from "./selector";
+
+    import BarStack from "./barStack";
     export default {
         name: "pyramid",
-        components: {},
+        components: {BarStack},
         data() {
             return {
                 options: [{
@@ -876,5 +887,8 @@
         100% {
             transform: rotateX(66deg) rotateZ(360deg);
         }
+    }
+    .el-card{
+        margin-bottom: 10px;
     }
 </style>

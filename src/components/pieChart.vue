@@ -128,7 +128,7 @@ export default {
 <style lang="scss" scoped>
 #pieChart{
   width: 100%;
-  height: 360px;
+  height: 500px;
 }
 </style>
 
