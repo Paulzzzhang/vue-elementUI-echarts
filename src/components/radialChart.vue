@@ -27,7 +27,7 @@
             </el-col>
 
             <div style="margin-left: 10px">
-              <el-button icon="el-icon-search" circle></el-button>
+              <el-button icon="el-icon-search" circle @click="getData"></el-button>
             </div>
 
           </div>

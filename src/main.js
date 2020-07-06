@@ -7,9 +7,11 @@ import 'element-ui/lib/theme-chalk/index.css'
 import  'echarts-wordcloud/dist/echarts-wordcloud'
 import 'echarts-gl'
 import 'echarts/map/js/china'
+import axios from 'axios'
+Vue.use(ElementUI)
 Vue.use(ElementUI)
 
-
+Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts
 new Vue({

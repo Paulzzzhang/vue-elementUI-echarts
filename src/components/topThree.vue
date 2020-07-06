@@ -17,7 +17,7 @@
                         </el-col>
 
                         <div style="margin-left: 10px">
-                            <el-button icon="el-icon-search" circle></el-button>
+                            <el-button icon="el-icon-search" circle @click="getInfo"></el-button>
                         </div>
 
                     </div>
@@ -44,15 +44,17 @@
         components: {},
         data(){
             return{
+                industryData:[49, 80, 67,95,45],
+
 
                 options: [{
-                    value: '选项1',
+                    value: 'bj',
                     label: '北京'
                 }, {
-                    value: '选项2',
+                    value: 'sh',
                     label: '上海'
                 }, {
-                    value: '选项3',
+                    value: 'cq',
                     label: '重庆'
                 }, {
                     value: '选项4',
@@ -89,6 +91,15 @@
         },
         methods:{
             getData(){
+                this.initCharts()
+            },
+            getInfo(){
+                console.log(this.value)
+                this.industryData = [25,65,8,7,89]
+                // Make a request for a user with a given ID
+                this.$axios
+                    .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+                    .then(response => console.log(response))
                 this.initCharts()
             },
             initCharts(){
@@ -148,7 +159,7 @@
                             color: this.lightBlue
                         },
                         barWidth: '40%',
-                        data: [49, 80, 67,95,45],
+                        data: this.industryData,
                         z: 10
                     }, {
                         type: 'bar',

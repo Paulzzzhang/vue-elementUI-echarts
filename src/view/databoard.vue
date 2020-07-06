@@ -9,7 +9,10 @@
                         <el-row :gutter="20">
                             <el-col :span="24">
                                 <el-card shadow="hover">
-                                    <router-view></router-view>
+                                    <keep-alive>
+                                        <router-view></router-view>
+                                    </keep-alive>
+
                                 </el-card>
                             </el-col>
 
