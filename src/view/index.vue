@@ -82,7 +82,7 @@ img {
   width: 200px;
   height: 50px;
   border-radius: 50px;
-  border: 2px thin;
+  border: 1px solid;
   /* border-color: blueviolet; */
 }
 #startButton:hover {

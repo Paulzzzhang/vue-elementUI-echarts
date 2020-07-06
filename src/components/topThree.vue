@@ -44,9 +44,7 @@
         components: {},
         data(){
             return{
-                first:  require('../assets/first.png'),
-                second:  require('../assets/second.png'),
-                third:  require('../assets/third.png'),
+
                 options: [{
                     value: '选项1',
                     label: '北京'

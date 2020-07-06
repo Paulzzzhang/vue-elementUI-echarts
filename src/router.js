@@ -21,7 +21,7 @@ import radialChart from "./components/radialChart";
 import topThree from "./components/topThree";
 import manCount from "./components/manCount";
 import skillCloud from "./components/skillCloud";
-import selector from "./components/selector";
+import dynamicpie from "./components/dynamicpie";
 Vue.use(Router)
 
 
@@ -133,7 +133,7 @@ export default new Router({
         {
             path: '/test',
             name: 'test',
-            component: selector,
+            component: dynamicpie,
         }
 
     ]

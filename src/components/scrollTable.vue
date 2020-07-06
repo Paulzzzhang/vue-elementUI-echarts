@@ -120,7 +120,7 @@
     props:{
       sourceLink: String,
 
-  },
+    },
 
     computed: {
       optionSetting () {
@@ -138,7 +138,7 @@
       }
     },
     mounted() {
-      console.log(this.sourceLink)
+      console.log(this.src)
     },
     methods: {
 

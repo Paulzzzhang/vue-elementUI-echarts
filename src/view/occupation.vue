@@ -12,6 +12,16 @@
                     <roundLineChart></roundLineChart>
                 </el-card>
             </el-col>
+            <el-col :span="12">
+                <el-card shadow="hover">
+                    <horizontal-bar></horizontal-bar>
+                </el-card>
+            </el-col>
+            <el-col :span="12">
+                <el-card shadow="hover">
+                    <dynamicpie></dynamicpie>
+                </el-card>
+            </el-col>
         </el-row>
 
     </div>
@@ -21,6 +31,8 @@
 <script>
     import ScrollTable from "../components/scrollTable";
     import roundLineChart from "../components/roundLineChart";
+    import HorizontalBar from "../components/horizontalBar";
+    import Dynamicpie from "../components/dynamicpie";
     export default {
         name: "occupation",
         data(){
@@ -29,7 +41,7 @@
 
             }
         },
-        components: {ScrollTable,roundLineChart}
+        components: {Dynamicpie, HorizontalBar, ScrollTable,roundLineChart}
     }
 </script>
 
@@ -59,6 +71,9 @@
         text-align: center;
         line-height: 100px;
         color: #fff;
+    }
+    .el-card{
+        margin-top: 20px;
     }
     .grid-con-1 .grid-con-icon {
         background: rgb(45, 140, 240);

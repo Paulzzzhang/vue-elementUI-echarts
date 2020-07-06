@@ -26,7 +26,7 @@
         </span>
                                 <div class="txt_right" :class="`txt_right${index + 1}`">
           <span>
-            <div class="f_div" :class="{aharrow_up: index === 0 || index == 1, aharrow_down: index == 2 || index == 3}">{{ item.post }}</div>
+            <div class="f_div" :class="{aharrow_up: index === 0 || index === 1, aharrow_down: index === 2 || index === 3}">{{ item.post }}</div>
             <div class="s_div" :class="`s_div${index + 1}`">{{ item.number }}人</div>
           </span>
                                 </div>

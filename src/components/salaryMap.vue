@@ -271,19 +271,26 @@
                         text: ['scatter3D'],
                         left: 'right',
                         max: 100,
+                        aspectScale :1,
+                        zoom: 2,
+                       // center: [115.97, 29.71],
                         calculable: true,
                         inRange: {
                             color: ['#000', 'blue', 'purple']
                         }
                     }],
                         geo3D: {
-                        map: 'china',
-                        roam: true,
-                        itemStyle: {
-                        areaColor: '#87aa66',
-                            opacity: 1,
-                            borderWidth: 0.4,
-                            borderColor: '#000'
+                            map: 'china',
+                            roam: true,
+                            left: '20px',
+                            layoutSize: '900px',
+                            itemStyle: {
+                                areaColor: '#87aa66',
+                                opacity: 1,
+                                color: 'darkCyan',
+                                borderWidth: 0.4,
+                                borderColor: '#000',
+
                     },
                     label: {
                         show: true,

@@ -41,6 +41,7 @@
                         title: '各规模企业薪资分析',
                         name: '可疑群众线索',
                         type: 'pie',
+
                         //起始角度，支持范围[0, 360]
                         startAngle: 0,
                         //饼图的半径，数组的第一项是内半径，第二项是外半径
@@ -299,7 +300,7 @@
 <style lang="scss" scoped>
     #nightingale{
         width: 100%;
-        height: 500px;
+        height: 700px;
     }
 </style>
 
