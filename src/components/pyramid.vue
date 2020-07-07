@@ -3,14 +3,14 @@
     <div>
 
         <el-row :gutter="20">
-            <el-col :span="12">
+            <el-col :span="14">
                 <el-card shadow="hover">
                     <div class="wrap-container trigle">
                         <div class="back_img3"></div>
                         <div class="back_img"></div>
                         <div class="back_img1"></div>
                         <div class="back_img2"></div>
-                        <ul :class="{first: index === 0, second: index === 1, third: index === 2, four: index === 3}" v-for="(item, index) in arrData" v-bind:key="index">
+                        <ul :class="{first: index === 0, second: index === 1, third: index === 2, four: index === 3}" v-for="(item, index) in chartData" v-bind:key="index">
                             <li></li>
                             <li></li>
                             <li></li>
@@ -19,7 +19,7 @@
                             <li></li>
                         </ul>
 
-                        <div class="detail" :class="`detail_${index + 1}`" v-for="(item, index) in arrData" :key="index">
+                        <div class="detail" :class="`detail_${index + 1}`" v-for="(item, index) in chartData" :key="index">
                             <div class="detail_txt" :class="`detail_txt${index + 1}`">
         <span class="precent_txt" :class="`precent_txt${index + 1}`">
           <div class="chartsdom" :id="`chart_${index + 1}`"></div>
@@ -40,9 +40,9 @@
 
                 </el-card>
             </el-col>
-                 <el-col :span="12">
+                 <el-col :span="10">
                     <el-card shadow="hover">
-                    <div style="height: 70px">
+                    <div style="height: 500px">
                         <el-col :span="9">
                             <el-select v-model="value" filterable placeholder="请选择">
                                 <el-option
@@ -55,15 +55,11 @@
                         </el-col>
 
                         <div style="margin-left: 10px">
-                            <el-button icon="el-icon-search" circle></el-button>
+                            <el-button icon="el-icon-search" circle @click="getData"></el-button>
                         </div>
 
                     </div>
-                    <el-col :span="24">
-                        <el-card shadow="hover">
-                            <bar-stack></bar-stack>
-                        </el-card>
-                    </el-col>
+
 
                 </el-card>
 
@@ -81,42 +77,16 @@
 <script>
     //import Selector from "./selector";
 
-    import BarStack from "./barStack";
+
+
     export default {
         name: "pyramid",
-        components: {BarStack},
+        components: {},
         data() {
             return {
-                options: [{
-                    value: '选项1',
-                    label: '北京'
-                }, {
-                    value: '选项2',
-                    label: '上海'
-                }, {
-                    value: '选项3',
-                    label: '重庆'
-                }, {
-                    value: '选项4',
-                    label: '深圳'
-                }, {
-                    value: '选项5',
-                    label: '成都'
-                }],
-                value: '',
-                arrData: [{
-                    post: '大专及以下',
-                    number: 158
-                },{
-                    post: '本科',
-                    number: 572
-                },{
-                    post: '硕士',
-                    number: 826
-                },{
-                    post: '博士',
-                    number: 66
-                }],
+                options: this.industryOption(),
+                value: 'IT·互联网',
+                chartData: [],
                 color: ['#45fed4', '#84a9ef', '#f1e04f', '#dbfe73'],
                 totalNum: [],
                 sum: 0
@@ -124,26 +94,45 @@
             }
         },
         mounted() {
-            // eslint-disable-next-line no-unused-vars
-            this.arrData.forEach((v, i) => {
-                this.totalNum.push(v.number);
-            })
-            // eslint-disable-next-line no-unused-vars
-            this.sum = this.totalNum.reduce((prev, next, index, array) => prev + next)
-            this.arrData.map((v, i) => {
-                v.color = this.color[i];
-                this.getEchart(`chart_${i + 1}`, v);
-            })
+           this.getData()
         },
         methods: {
-            getEchart(dom, data) {
+            getData(){
+                this.$axios
+                    .get('/job//jobEducation/' + this.value)
+                    .then(response => {
+                            if(response.data.status === 1){
+                                this.chartData = response.data.body
+                                this.totalNum=[]
+                                // eslint-disable-next-line no-unused-vars
+                                this.chartData.forEach((v, i) => {
+                                    this.totalNum.push(v.number);
+                                })
+                                // eslint-disable-next-line no-unused-vars
+                                this.sum = this.totalNum.reduce((prev, next, index, array) => prev + next)
+                                this.chartData.map((v, i) => {
+                                    v.color = this.color[i];
+                                    this.initCharts(`chart_${i + 1}`, v);
+                                })
+                            }else{
+                                console.log(response.data)
+                                console.log("数据获取失败")
+                            }
+                        }
+                    )
+
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    })
+            },
+            initCharts(dom, data) {
                 let sum = (Math.round( (data.number / this.sum) * 10000 ) / 100).toFixed(1);
                 let myChart = this.$echarts.init(document.getElementById(dom));
-                this.option = {
+                let options = {
                     color: [data.color, '#333'],
                     series: [
                         {
-                            name: '访问来源',
+                            name: '学历占比',
                             type: 'pie',
                             radius: ['92%', '100%'],
                             clockWise: false,
@@ -185,7 +174,7 @@
                         }
                     ]
                 };
-                myChart.setOption(this.option, true);
+                myChart.setOption(options, true);
                 window.addEventListener('resize', () => {
                     myChart.resize();
                 });
@@ -248,7 +237,7 @@
         }
         .first {
             list-style-type: none;
-            left: 240px;
+            left: 220px;
             top: 100px;
             width: 240px;
             height: 240px;
@@ -303,7 +292,7 @@
         }
         .second {
             list-style-type: none;
-            left: 261px;
+            left: 241px;
             top: 65px;
             width: 200px;
             height: 195px;
@@ -357,7 +346,7 @@
         }
         .third {
             list-style-type: none;
-            left: 292px;
+            left: 272px;
             top: 20px;
             width: 140px;
             height: 140px;
@@ -411,7 +400,7 @@
         }
         .four {
             list-style-type: none;
-            left: 310px;
+            left: 290px;
             top: -8px;
             width: 105px;
             height: 106px;
@@ -467,20 +456,20 @@
             height: 60px;
             position: absolute;
             &.detail_1 {
-                left: 2px;
+                left: 10px;
                 top: 245px;
             }
             &.detail_2 {
-                left: 430px;
+                left: 450px;
                 top: 194px;
                 width:290px;
             }
             &.detail_3 {
-                left: 67px;
+                left: 95px;
                 top: 117px;
             }
             &.detail_4 {
-                left: 379px;
+                left: 390px;
                 top: 60px;
             }
             .detail_txt {

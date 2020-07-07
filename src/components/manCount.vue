@@ -17,10 +17,28 @@
         },
         methods:{
             getData(){
-                this.initCharts()
+                this.$axios
+                    .get('/job/jobCount')
+                    .then(response => {
+                            if(response.data.status === 1){
+                                this.chartData = response.data.body
+                                this.initCharts()
+                            }else{
+                                console.log("数据获取失败")
+                            }
+                        }
+                    )
+
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    })
             },
             initCharts(){
                 let myChart = this.$echarts.init(document.getElementById('manCount'))
+                let hireCount = this.chartData.hireCount
+                let jobType = this.chartData.jobType
+                let arr = new Array(jobType.length)
+                arr.fill(200000)
                 let options = {
                     left: 20,
                     title: {
@@ -45,7 +63,8 @@
                         "formatter": "{b0}:{c0}"
                     },
                     xAxis: {
-                        "max": 300,
+                        //todo
+                        "max": 200000,
                         "splitLine": {
                             "show": false
                         },
@@ -63,19 +82,8 @@
                         {
                             "type": "category",
                             "inverse": false,
-                            //todo
-                            "data": [
-                                "山西",
-                                "四川",
-                                "西藏",
-                                "北京",
-                                "上海",
-                                "内蒙古",
-                                "云南",
-                                "黑龙江",
-                                "广东",
-                                "江苏"
-                            ],
+
+                            "data":jobType.reverse(),
                             "axisLine": {
                                 "show": false
                             },
@@ -105,19 +113,8 @@
                                 20,
                                 0
                             ],
-                            symbolBoundingData: 300,
-                            data: [
-                                13,
-                                42,
-                                67,
-                                81,
-                                86,
-                                94,
-                                166,
-                                220,
-                                249,
-                                1400
-                            ],
+
+                            data:hireCount.reverse(),
                             z: 10
                         },
                         {
@@ -137,25 +134,14 @@
                             symbolMargin: "5%",
                             symbol: "image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAADYElEQVR4nO2dz0sUYRjHP7tIdAmxQ1LdlhCKMohAIsgiyEuHjkUEFQTlpejS/xCCBB06RBGBBKIG4cGyH0qHBKE9eKyFqBQPRQeNCt06vGNY7bq7szPfeZLnAwuzM+/zgw/DDvMu70wOIVveLscJOwycA44A24CfwAfgKXAbeFVvovlC/o/vuVwuTj+x0FWiYdGbgXvA8RrjHgAXgIVaCbMU3SKr1BhtwEtgZx1jTwI7gG7ga5pNNUO+9pBMuEN9klfYD9xMqZdEsCj6AHAiRtxZYFeyrSSHRdGnYsblCD8jJrEoek8TsbsT6yJhLIrelFFsqlgUPZtRbKpYFP2kidjxxLpIGIuiB4AvMeLmgJGEe0kMi6I/AVdjxPVSx91hVlgUDXAXuEaY16jFMnAJeJhqR01iVTTAdeAYUFxjzBRwCLgl6agJrM51rDAO7AP2EmbxthPO8vfAc2Ams84axLpoCGKLrH1mm8eC6KPAGaAL2Fpj7AZgY7T9DfhRY/wc4eflPmH+OjOynI8uEGbpukXlJ4Dz84V8aWWHcj46q4thFzCNTjJRren2UrlLWPM3WYjuAMYIk/tq2oCx9lK5Q11YLboFGARaxXVX0woMtpfK0uuTWvRFoFNcsxKdhF5kqEX3iuuthbQXtehG/gdMG2kvlm/B1xUuWoSLFmFF9CRwg2TnM4pRzskEc8bGiugR4ArhNjkpJqKcJv51sSJ63eOiRbhoES5ahIsW4aJFuGgRLlqEixbhokW4aBEuWoSLFuGiRbhoES5ahIsW4aJFuGgRLlqEWvTHKvs/p1izWu5qvaSCWvTlCvtmgeEUaw5TeUVtpV5SQy16COgBRoHXhMWb3aS7PnAhqjEQ1RwFeuYL+aEUa/5DFmtYHkefOEwQVmcBvKD+FQNvgNN/P+pHiV8MRbhoES5ahIsW4aJFuGgRLlqEixbhokW4aBEuWoSLFuGiRbhoES5ahIsW4aJFuGgRLlqEixbhokVYEx3nudGKXE1jTfS6xUWLcNEiXLQIFy3CRYtw0SJctAgXLcJFi3DRIv430eUq2+axJvp7jePPqmzHySXFmuhHwFKVYzNA/6rv/VR/s9BSlMsM1kTPEN4DPkU4I8vAO6APOAgsrhq7GO3ri8aUo5ipKIep1zv9AtipgOACGIrLAAAAAElFTkSuQmCC",
                             symbolSize: 22.5,
-                            symbolBoundingData: 300,
+
                             symbolPosition: "start",
                             symbolOffset: [
                                 20,
                                 0
                             ],
                             //todo
-                            data: [
-                                13,
-                                42,
-                                67,
-                                81,
-                                86,
-                                94,
-                                166,
-                                220,
-                                249,
-                                1500,
-                            ],
+                            data: arr,
                             z: 5
                         }
                     ]

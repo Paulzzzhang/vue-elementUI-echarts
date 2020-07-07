@@ -16,29 +16,29 @@ export default {
 	},
 	methods: {
 		getData() {
-			this.chartInit()
+			this.$axios
+					.get('/job/expEduSalary/')
+					.then(response => {
+
+								if(response.data.status === 1){
+									this.chartData = response.data.body
+
+									this.initCharts()
+								}else{
+									console.log("数据获取失败")
+								}
+							}
+					)
+
+					.catch(function (error) { // 请求失败处理
+						console.log(error);
+					})
 		},
-		chartInit() {
+		initCharts() {
 			let hours = ['初中', '高中', '大专', '本科','硕士','博士'];
 			let days = ['不限', '一年', '一到三年', '三到五年','五到十年','十年以上'];
-			let data = [
-				[0, 0, 5],
-				[0, 1, 1],
-				[0, 2, 2],
-				[0, 3, 8],
-				[1, 0, 3],
-				[1, 1, 5],
-				[1, 2, 1],
-				[1, 3, 9],
-				[2, 0, 4],
-				[2, 1, 8],
-				[2, 2, 4],
-				[2, 3, 8],
-				[3, 0, 6],
-				[3, 1, 7],
-				[3, 2, 4],
-				[3, 3, 9],
-			];
+			let data = this.chartData.salary
+
 			let myChart = this.$echarts.init(document.getElementById('bar3DChart'))
 			let options = {
 				title: {
@@ -61,14 +61,14 @@ export default {
 					show: true
 				},
 				visualMap: {
-					show: false,
+					show: true,
 					max: 20,
 					inRange: {
-						color: ['#0a6ae0', '#8e2f12', '#0a6ae0', '#0a6ae0', '#8e2f12', '#f391a9', '#d71345']
+						color: ['#95E1D3', '#EAFFD0', '#FCE38A', '#0a6ae0']
 					}
 				},
 				xAxis3D: {
-					name: '',
+					name: '经验',
 					type: 'category',
 					data: hours,
 					axisLabel: {
@@ -78,7 +78,7 @@ export default {
 					}
 				},
 				yAxis3D: {
-					name: '',
+					name: '学历',
 					type: 'category',
 					data: days,
 					axisLabel: {
@@ -117,7 +117,7 @@ export default {
 					},
 					light: {
 						main: {
-							intensity: 1.2,
+							intensity: 1.0,
 							shadow: true
 						},
 						ambient: {
@@ -131,7 +131,7 @@ export default {
 						autoRotate: true,
 						zoomSensitivity: 0,
 						autoRotateAfterStill: 1,
-						distance: 250
+						distance:240
 					}
 				},
 				series: [{
@@ -166,7 +166,7 @@ export default {
 									}
 							},
 							itemStyle: {
-									color: '#900'
+									color: '#95E1D3'
 							}
 					}
 				}]

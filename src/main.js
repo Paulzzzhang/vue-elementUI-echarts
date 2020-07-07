@@ -8,10 +8,15 @@ import  'echarts-wordcloud/dist/echarts-wordcloud'
 import 'echarts-gl'
 import 'echarts/map/js/china'
 import axios from 'axios'
-Vue.use(ElementUI)
+import global from "./global";
 Vue.use(ElementUI)
 
+Vue.use(global)
+
 Vue.prototype.$axios = axios
+axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded';
+
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts
 new Vue({

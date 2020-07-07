@@ -6,7 +6,7 @@
                 <el-card shadow="hover">
                     <div style>
                         <el-col :span="4">
-                            <el-select v-model="value" filterable placeholder="请选择">
+                            <el-select   v-model="value" filterable placeholder="请选择">
                                 <el-option
                                         v-for="item in options"
                                         :key="item.value"
@@ -17,7 +17,7 @@
                         </el-col>
 
                         <div style="margin-left: 10px">
-                            <el-button icon="el-icon-search" circle @click="getInfo"></el-button>
+                            <el-button icon="el-icon-search" circle @click="getData"></el-button>
                         </div>
 
                     </div>
@@ -44,26 +44,11 @@
         components: {},
         data(){
             return{
-                industryData:[49, 80, 67,95,45],
+                chartData: null,
 
 
-                options: [{
-                    value: 'bj',
-                    label: '北京'
-                }, {
-                    value: 'sh',
-                    label: '上海'
-                }, {
-                    value: 'cq',
-                    label: '重庆'
-                }, {
-                    value: '选项4',
-                    label: '深圳'
-                }, {
-                    value: '选项5',
-                    label: '成都'
-                }],
-                value:'',
+                options: this.cityOption(),
+                value:'重庆',
                 lightBlue :{
                     type: 'linear',
                     x: 0,
@@ -90,20 +75,37 @@
             this.getData()
         },
         methods:{
+
             getData(){
-                this.initCharts()
-            },
-            getInfo(){
                 console.log(this.value)
-                this.industryData = [25,65,8,7,89]
+
                 // Make a request for a user with a given ID
                 this.$axios
-                    .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-                    .then(response => console.log(response))
-                this.initCharts()
+                    .get('/job/areaJob/' + this.value)
+                    .then(response => {
+                            if(response.data.status === 1){
+                                this.chartData = response.data.body
+                                this.initCharts()
+                            }else{
+                                console.log("数据获取失败")
+                            }
+                            this.initCharts()}
+                        )
+
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    })
+
+
             },
             initCharts(){
                 let myChart = this.$echarts.init(document.getElementById('topThree'))
+                let topJobs = this.chartData.topJobs
+               // let jobCount = this.chartData.JobCount
+                //todo 修改为真实数据
+                let industryData = [25,65,8,7,89]
+                let arr = new Array(topJobs.length)
+                arr.fill(100)
                 let options={
                     tooltip: {
                         show: true
@@ -116,10 +118,10 @@
                     },
                     xAxis: {
                         //todo 行业
-                        data: ['平均CPU\n利用率', '平均内存\n利用率', '平均硬盘\n利用率','平均行业\n利用率','平均行业\n利用率'],
+                        data: topJobs,
                         offset: 15,
                         axisTick: {
-                            show: true
+                            show: false
                         },
                         axisLine: {
                             show: true
@@ -159,23 +161,9 @@
                             color: this.lightBlue
                         },
                         barWidth: '40%',
-                        data: this.industryData,
+                        data: industryData,
                         z: 10
-                    }, {
-                        type: 'bar',
-                        barGap: '-100%',
-                        itemStyle: {
-                            color: {
-                               // image: this.piePatternImg,
-                                repeat: 'repeat'
-                            },
-                            opacity: 0.05
-                        },
-                        barWidth: '40%',
-
-                        data: [100, 100, 100],
-                        z: 5
-                    }, {
+                    },  {
                         type: 'bar',
                         barGap: '-100%',
                         itemStyle: {
@@ -184,7 +172,7 @@
                         },
                         barWidth: '40%',
 
-                        data: [100, 100, 100,100,100],
+                        data: arr,
                         z: 5
                     }],
                     backgroundColor: "#17818b",

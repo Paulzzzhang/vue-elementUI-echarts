@@ -14,7 +14,7 @@
         name: "horizontalBar",
         data(){
             return{
-
+                chartData: null,
             }
         },
         mounted() {
@@ -22,13 +22,35 @@
         },
         methods:{
             getData(){
-                this.initCharts()
+
+                // Make a request for a user with a given ID
+                this.$axios
+                    .get('/job/averageSalary')
+                    .then(response => {
+                        if(response.data.status === 1){
+                            this.chartData = response.data.body
+                            this.initCharts()
+                        }else{
+                            console.log("数据获取失败")
+                        }
+                        }
+                    )
+
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    })
             },
-            initCharts(){
+            initCharts: function () {
                 let myChart = this.$echarts.init(document.getElementById('horizontalBar'))
-                let options = {title: {
-                        text: '世界人口总量',
-                        subtext: '数据来自网络'
+                let avgSalary = this.chartData.avgSalary
+                let maxSalary = this.chartData.maxSalary
+                let minSalary = this.chartData.minSalary
+                let jobType = this.chartData.jobType
+
+                let options = {
+                    title: {
+                        text: '各行业平均薪资',
+                        subtext: '数据来源于拉勾/58/51/猎聘'
                     },
                     tooltip: {
                         trigger: 'axis',
@@ -37,7 +59,7 @@
                         }
                     },
                     legend: {
-                        data: ['平均工资', '最高平均','最低平均']
+                        data: ['平均工资', '最高平均', '最低平均']
                     },
                     grid: {
                         left: '3%',
@@ -47,11 +69,12 @@
                     },
                     xAxis: {
                         type: 'value',
+                        name:'单位/元',
                         boundaryGap: [0, 0.01]
                     },
                     yAxis: {
                         type: 'category',
-                        data: ['IT','服务业','互联网', '互联网', '互联网', '互联网', '互联网', '总平均工资']
+                        data: jobType
                     },
                     series: [
                         {
@@ -59,23 +82,24 @@
                             type: 'bar',
                             //todo 修改颜色
                             //color: 'darkGreen',
-                            data: [18203, 23489, 29034, 104970, 131744, 630230, 131744, 630230]
+                            data: avgSalary
                         },
                         {
                             name: '最高平均',
                             type: 'bar',
-                            data: [19325, 23438, 31000, 121594, 134141, 681807, 134141, 681807]
+                            data: maxSalary
                         },
                         {
                             name: '最低平均',
                             type: 'bar',
-                            data: [19325, 23438, 31000, 121594, 134141, 681807,134141, 681807]
+                            data: minSalary
                         }
-                    ]}
+                    ]
+                }
                 myChart.setOption(options)
             }
 
-         }
+        }
 
     }
 </script>

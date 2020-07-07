@@ -1,8 +1,9 @@
 <template>
+
     <div>
         <div class="collapse-btn" @click="collapseChange">
             <i v-if="!isCollapse" class="el-icon-s-fold"></i>
-            <i v-else class="el-icon-s-unfold"></i>
+            <i v-else class="el-icon-s-unfold" style="height: 50px"></i>
         </div>
         <el-menu default-active=""  unique-opened
                  router class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
@@ -106,10 +107,8 @@
                 this.isCollapse = !this.isCollapse;
             },
             lineTo(){
-                console.log(this.value)
-                if(this.value === '1'){
-                    this.$router.push('/occupation/differOccupation')
-                }
+
+
 
             }
         }

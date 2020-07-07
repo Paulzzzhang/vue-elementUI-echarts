@@ -53,24 +53,9 @@ export default {
   name: 'radialChart',
   data() {
     return {
-      options: [{
-        value: '选项1',
-        label: '北京'
-      }, {
-        value: '选项2',
-        label: '上海'
-      }, {
-        value: '选项3',
-        label: '重庆'
-      }, {
-        value: '选项4',
-        label: '深圳'
-      }, {
-        value: '选项5',
-        label: '成都'
-      }],
-      firstCity: '',
-      secondCity: '',
+      options: this.cityOption(),
+      firstCity: '重庆',
+      secondCity: '成都',
       titleData: [],
       typeStander: [],
       typeData: []
@@ -81,40 +66,36 @@ export default {
   },
   methods: {
     getData() {
-      this.titleData = ['班级1', '班级2']
-      this.typeStander = [{
-        name: '语文',
-        max: 6000
-      }, {
-        name: '数学',
-        max: 16000
-      }, {
-        name: '英语',
-        max: 30000
-      }, {
-        name: '物理',
-        max: 35000
-      }, {
-        name: '化学',
-        max: 50000
-      }, {
-        name: '生物',
-        max: 25000
-      }]
-      this.typeData = [{
-        value: [5000, 7000, 12000, 11000, 15000, 14000],
-        name: '班级1',
-      }, {
-        value: [2500, 12000, 8000, 8500, 12000, 12000],
-        name: '班级2',
-      }]
-      this.chartInit()
+      let cities = new Array(2)
+      cities.push(this.firstCity)
+      cities.push(this.secondCity)
+      this.$axios
+              .get('/job/twoProvinceCount/' + this.firstCity + '/' + this.secondCity)
+              .then(response => {
+                        if(response.data.status === 1){
+                          this.chartData = response.data.body
+                          this.initCharts()
+                        }else{
+                          console.log("数据获取失败")
+                        }
+                      }
+              )
+
+              .catch(function (error) { // 请求失败处理
+                console.log(error);
+              })
+
+
+
     },
-    chartInit() {
+    initCharts() {
       let myChart = this.$echarts.init(document.getElementById('radialChart'))
+      this.typeStander = this.chartData.typeStander
+      this.titleData = this.chartData.titleData
+      this.typeData = this.chartData.typeData
       let options = {
         title: {
-          text: '雷达图',
+          text: '不同城市的行业分布',
           textStyle: {
             color: '#226f69'
           },

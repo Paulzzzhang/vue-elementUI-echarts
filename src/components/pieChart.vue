@@ -17,10 +17,25 @@ export default {
   },
   methods: {
     getData() {
-      this.chartInit()
+      this.$axios
+              .get('/job/salaryOfProp')
+              .then(response => {
+                        if(response.data.status === 1){
+                          this.chartData = response.data.body
+                          this.initCharts()
+                        }else{
+                          console.log("数据获取失败")
+                        }
+              }
+              )
+              .catch(function (error) { // 请求失败处理
+                console.log(error);
+              })
     },
-    chartInit() {
+    initCharts() {
       let myChart = this.$echarts.init(document.getElementById('pieChart'))
+      let companyType = this.chartData.companyType
+      let data = this.chartData.data
       let options = {
         title: {
           text: '饼图程序调用高亮示例',
@@ -36,17 +51,19 @@ export default {
         legend: {
           orient: 'vertical',
           left: 20,
-          data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎'],
+          data: companyType,
           textStyle: {
-            color: '#ffffff'
+            color: '#21c490'
           }
         },
         series: [
           {
-            name: '访问来源',
+            name: '企业类型',
             type: 'pie',
+
+            height: '510px',
             radius: ['35%','70%'],
-            center: ['50%', '60%'],
+            center: ['50%', '50%'],
             label: {
               normal: {
                 show: false,
@@ -61,18 +78,12 @@ export default {
                 }
               }
             },
-            data: [
-              { value: 335, name: '直接访问' },
-              { value: 310, name: '邮件营销' },
-              { value: 234, name: '联盟广告' },
-              { value: 135, name: '视频广告' },
-              { value: 1548, name: '搜索引擎' }
-            ],
+            data: data,
             itemStyle: {
               emphasis: {
                 shadowBlur: 10,
                 shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                shadowColor: 'rgba(16,121,118,0.5)'
               }
             }
           }

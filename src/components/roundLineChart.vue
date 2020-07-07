@@ -10,6 +10,8 @@
         name: 'roundLineChart',
         data() {
             return {
+                chartData:null,
+                legend: ['IT·互联网', '金融', '房地产','医疗'],
 
             }
         },
@@ -18,15 +20,34 @@
         },
         methods: {
             getData() {
-                this.chartInit()
+                let postfix = this.legend.join('/')
+                console.log(postfix)
+                this.$axios
+                    .get('/job/educationSalary/'+ postfix)
+                    .then(response => {
+                            if(response.data.status === 1){
+                                this.chartData = response.data.body
+                                console.log(this.chartData)
+                                this.initCharts()
+                            }else{
+                                console.log("数据获取失败")
+                            }
+                        }
+                    )
+
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    })
             },
-            chartInit() {
+            initCharts() {
                 let myChart = this.$echarts.init(document.getElementById('roundLineChart'))
+                let salary = this.chartData.avgSalary
                 let options = {
                     //速度
-                    animationDuration: 3000,
+
+                    animationDuration: 1500,
                     title: {
-                        text: '不同学历对应薪资',
+                        text: '热门行业不同学历对应薪资',
                         color: 'lightCyan',
                         textStyle: {
                             fontWeight: 'normal',
@@ -49,7 +70,7 @@
                         itemWidth: 14,
                         itemHeight: 5,
                         itemGap: 13,
-                        data: ['北京', '上海', '广州','全国'],
+                        data: this.legend,
                         textStyle: {
                             fontSize: 12,
                             color: 'darkCyan'
@@ -95,11 +116,12 @@
                         //   }, '周日']
                     }],
                     yAxis: [{
+
                         type: 'value',
                         name: '单位(元)',
                         color: 'lightCyan',
                         axisTick: {
-                            show: false
+                            show: true
                         },
                         axisLine: {
                             lineStyle: {
@@ -107,19 +129,20 @@
                             }
                         },
                         axisLabel: {
-                            margin: 10,
+                            margin: 5,
                             textStyle: {
                                 fontSize: 14
                             }
                         },
                         splitLine: {
                             lineStyle: {
-                                color: '#57617B'
+                                color: '#fff'
                             }
                         }
                     }],
                     series: [{
-                        name: '北京',
+
+                        name: 'IT·互联网',
                         type: 'line',
                         smooth: true,
                         symbol: 'circle',
@@ -150,9 +173,9 @@
                                 borderWidth: 12
                             }
                         },
-                        data: [220, 182, 191, 134, 150, 120, 110, 125, 145, 122, 165, 122]
+                        data: salary[0]
                     }, {
-                        name: '上海',
+                        name: '金融',
                         type: 'line',
                         smooth: true,
                         color: 'lightCyan',
@@ -184,9 +207,9 @@
                                 borderWidth: 12
                             }
                         },
-                        data: [120, 110, 125, 145, 122, 165, 122, 220, 182, 191, 134, 150]
+                        data: salary[1]
                     }, {
-                        name: '广州',
+                        name: '房地产',
                         type: 'line',
                         smooth: true,
                         symbol: 'circle',
@@ -217,10 +240,10 @@
                                 borderWidth: 12
                             }
                         },
-                        data: [220, 182, 125, 145, 122, 191, 134, 150, 120, 110, 165, 122]
+                        data: salary[2]
                     },
                         {
-                            name: '全国',
+                            name: '医疗',
                             type: 'line',
                             smooth: true,
                             symbol: 'circle',
@@ -251,7 +274,7 @@
                                     borderWidth: 12
                                 }
                             },
-                            data: [ 125, 145, 122, 165, 122,220, 182, 191, 134, 150, 120, 110]
+                            data: salary[3]
                         },
                     ]
                 }
@@ -263,6 +286,6 @@
 <style lang="scss" scoped>
     #roundLineChart{
         width: 100%;
-        height: 570px;
+        height: 550px;
     }
 </style>
