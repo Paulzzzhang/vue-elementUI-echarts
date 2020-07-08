@@ -8,7 +8,7 @@
                     <div id=" view " >
                         <el-row :gutter="20">
                             <el-col :span="24">
-                                <el-card shadow="hover">
+                                <el-card  shadow="hover">
 
                                         <router-view></router-view>
 
@@ -63,8 +63,9 @@
         background-color: #f9fafc;
     }
     .el-header, .el-footer {
-        background-color: darkcyan;
-        color: #333;
+        background-color: #2A384F;
+        color: white;
+        font-family: 微软雅黑,serif;
         text-align: left;
         line-height: 60px;
     }
@@ -81,6 +82,7 @@
     body > .el-container {
         margin-bottom: 40px;
         height: 800px;
+
     }
 
     .el-container:nth-child(5) .el-aside,
@@ -90,5 +92,11 @@
 
     .el-container:nth-child(7) .el-aside {
         line-height: 320px;
+    }
+    .el-main{
+        background-color: #000
+    }
+    .el-card{
+        background-color: #283149;
     }
 </style>

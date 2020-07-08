@@ -47,7 +47,7 @@
                 chartData: null,
 
 
-                options: this.cityOption(),
+                options: this.province(),
                 value:'重庆',
                 lightBlue :{
                     type: 'linear',
@@ -101,12 +101,12 @@
             initCharts(){
                 let myChart = this.$echarts.init(document.getElementById('topThree'))
                 let topJobs = this.chartData.topJobs
+
                 let jobRatio = this.chartData.jobRatio
-                for(let i = 0;i < jobRatio.length;i++){
-                    jobRatio[i] *= 10
-                }
-                console.log(jobRatio)
-                //todo 修改为真实数据
+
+
+
+
 
                 let arr = new Array(topJobs.length)
                 arr.fill(100)

@@ -99,7 +99,7 @@
         methods: {
             getData(){
                 this.$axios
-                    .get('/job//jobEducation/' + this.value)
+                    .get('/job/jobEducation/' + this.value)
                     .then(response => {
                             if(response.data.status === 1){
                                 this.chartData = response.data.body

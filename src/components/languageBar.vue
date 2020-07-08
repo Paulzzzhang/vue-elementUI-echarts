@@ -68,10 +68,13 @@
                 let options={
                     backgroundColor:'lightCyan',
 
-                    /* title: {
-                       text: '世界人口总量',
-                       subtext: '数据来自网络'
-                     },*/
+                    // title: {
+                    //    text: '计算机各语言平均薪资',
+                    //    //subtext: '数据来自网络'
+                    //     itemStyle: {
+                    //        color:"blue"
+                    //     }
+                    //  },
                     tooltip: {
                         trigger: 'axis',
                         axisPointer: {
@@ -145,7 +148,7 @@
                                 show: true,
                                 position: 'right',
                                 textStyle: {
-                                    color: '#ffffff',
+                                    color: '#14893f',
                                     fontSize: 11
 
                                 }

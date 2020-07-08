@@ -1,12 +1,12 @@
 <template>
-
-    <div>
+<!--    todo yanse-->
+    <div style="background-color: #333">
         <div class="collapse-btn" @click="collapseChange">
             <i v-if="!isCollapse" class="el-icon-s-fold"></i>
             <i v-else class="el-icon-s-unfold" style="height: 50px"></i>
         </div>
         <el-menu default-active=""  unique-opened
-                 router class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+                 router class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" background-color="transparent" >
             <el-submenu index="1" >
                 <template slot="title">
                     <i class="el-icon-pie-chart"></i>

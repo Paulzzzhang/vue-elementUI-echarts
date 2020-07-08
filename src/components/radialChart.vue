@@ -53,9 +53,9 @@ export default {
   name: 'radialChart',
   data() {
     return {
-      options: this.cityOption(),
-      firstCity: '重庆',
-      secondCity: '成都',
+      options: this.province(),
+      firstCity: '上海',
+      secondCity: '重庆',
       titleData: [],
       typeStander: [],
       typeData: []

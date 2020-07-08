@@ -42,6 +42,8 @@
             initCharts() {
                 let myChart = this.$echarts.init(document.getElementById('roundLineChart'))
                 let salary = this.chartData.avgSalary
+                let education = this.chartData.education
+                console.log(education)
                 let options = {
                     //速度
 
@@ -93,7 +95,7 @@
                                 color: '#57617B'
                             }
                         },
-                        data: ['初中', '高中', '大专', '本科', '硕士', '博士']
+                        data:education
                         // }, {
                         //   axisPointer: {
                         //     show: false

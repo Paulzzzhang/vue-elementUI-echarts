@@ -42,7 +42,7 @@
                 let JavSalary = this.chartData.JavSalary
 
                 let options={
-                    backgroundColor: '#0a3526',
+                    backgroundColor: '#fff',
                     tooltip: {
                         trigger: 'item',
                         formatter: "{a} <br/>{b} : {c}元"
@@ -53,7 +53,7 @@
                         data: scale,
                         icon: 'circle',
                         textStyle: {
-                            color: '#fff',
+                            color: 'blue',
                         }
                     },
                     title: {
