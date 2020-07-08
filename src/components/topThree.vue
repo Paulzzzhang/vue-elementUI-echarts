@@ -101,9 +101,13 @@
             initCharts(){
                 let myChart = this.$echarts.init(document.getElementById('topThree'))
                 let topJobs = this.chartData.topJobs
-               // let jobCount = this.chartData.JobCount
+                let jobRatio = this.chartData.jobRatio
+                for(let i = 0;i < jobRatio.length;i++){
+                    jobRatio[i] *= 10
+                }
+                console.log(jobRatio)
                 //todo 修改为真实数据
-                let industryData = [25,65,8,7,89]
+
                 let arr = new Array(topJobs.length)
                 arr.fill(100)
                 let options={
@@ -161,7 +165,7 @@
                             color: this.lightBlue
                         },
                         barWidth: '40%',
-                        data: industryData,
+                        data: jobRatio,
                         z: 10
                     },  {
                         type: 'bar',

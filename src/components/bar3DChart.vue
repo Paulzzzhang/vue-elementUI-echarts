@@ -62,9 +62,9 @@ export default {
 				},
 				visualMap: {
 					show: true,
-					max: 20,
+					max: 50000,
 					inRange: {
-						color: ['#95E1D3', '#EAFFD0', '#FCE38A', '#0a6ae0']
+						color:  ['lightGreen','#87aa66', '#eba438', 'orange', '#d94d4c','red']
 					}
 				},
 				xAxis3D: {
@@ -117,7 +117,7 @@ export default {
 					},
 					light: {
 						main: {
-							intensity: 1.0,
+							intensity: 1.2,
 							shadow: true
 						},
 						ambient: {
@@ -126,7 +126,7 @@ export default {
 						}
 					},
 					viewControl: {
-						alpha: 15,
+						alpha: 10,
 						beta: 40,
 						autoRotate: true,
 						zoomSensitivity: 0,

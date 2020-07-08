@@ -2,21 +2,17 @@
     <div>
 
         <el-row :gutter="20">
-            <el-col :span="12">
-                <el-card shadow="hover">
-                    <scroll-table :sourceLink="isrc"></scroll-table>
-                </el-card>
-            </el-col>
-            <el-col :span="12">
-                <el-card shadow="hover">
-                    <language-bar></language-bar>
-                </el-card>
-            </el-col>
-            <el-col :span="12">
+            <el-col :span="24">
                 <el-card shadow="hover">
                     <dynamicpie></dynamicpie>
                 </el-card>
             </el-col>
+            <el-col :span="24">
+                <el-card shadow="hover">
+                    <language-bar></language-bar>
+                </el-card>
+            </el-col>
+
             
         </el-row>
 
@@ -25,13 +21,15 @@
 
 <script>
     import languageBar from "../components/languageBar";
-    import scrollTable from "../components/scrollTable";
+
     import Dynamicpie from "../components/dynamicpie";
+
     export default {
         name: "InternetInfo",
         components:{
+
             Dynamicpie,
-            languageBar,scrollTable
+            languageBar
         }
     }
 </script>

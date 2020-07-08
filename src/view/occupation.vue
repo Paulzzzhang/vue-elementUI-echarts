@@ -4,7 +4,7 @@
         <el-row :gutter="20">
             <el-col :span="12">
                 <el-card shadow="hover">
-                    <scroll-table :sourceLink="isrc"></scroll-table>
+                    <scroll-table ></scroll-table>
                 </el-card>
             </el-col>
             <el-col :span="12">
@@ -39,7 +39,7 @@
         name: "occupation",
         data(){
             return{
-                isrc: "localhost/index",
+
 
             }
         },

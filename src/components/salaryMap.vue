@@ -89,9 +89,10 @@
                         seriesIndex: 0,
                         text: ['bar3D'],
                         calculable: true,
-                        max: 500,
+                        max: 30000,
                         inRange: {
-                            color: ['#87aa66', '#eba438', '#d94d4c']
+                            //todo 柱子颜色
+                            color: ['lightGreen','#87aa66', '#eba438', 'orange', '#d94d4c','red']
                         }
                     }, {
                         type: 'continuous',
@@ -104,7 +105,7 @@
                        // center: [115.97, 29.71],
                         calculable: true,
                         inRange: {
-                            color: ['#000', 'blue', 'purple']
+                            color: [ 'blue', 'purple']
                         }
                     }],
                         geo3D: {
@@ -115,6 +116,7 @@
                             itemStyle: {
                                 areaColor: '#87aa66',
                                 opacity: 1,
+                                //todo修改颜色
                                 color: 'darkCyan',
                                 borderWidth: 0.4,
                                 borderColor: '#000',
@@ -163,10 +165,13 @@
                             type: "bar3D",
                             coordinateSystem: 'geo3D',
                             barSize: 1, //柱子粗细
+
                             shading: 'lambert',
+                            minHeight: 3,
                             opacity: 1,
                             color: 'darkCyan',
                             bevelSize:0.3,
+
                             label: {
                                 show: false,
                                 formatter: '{b}'

@@ -53,7 +53,6 @@
                     .get('/job/wordCloud/' + this.value)
                     .then(response => {
                             if(response.data.status === 1){
-                                console.log(response.data.body)
                                 this.chartData = response.data.body
                                 this.initCharts()
                             }else{

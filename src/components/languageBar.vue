@@ -10,6 +10,7 @@
         data(){
             return{
                 options:'',
+                chartData:null,
             }
         },
         mounted() {
@@ -17,10 +18,29 @@
         },
         methods:{
             getData(){
-                this.initCharts()
+                this.$axios
+                    .get('/job/languageRank/')
+                    .then(response => {
+                             console.log(response.data.body)
+                            if(response.data.status === 1){
+
+                                this.chartData = response.data.body
+                                this.initCharts()
+                            }else{
+                                console.log("数据获取失败")
+                            }
+                        }
+                    )
+
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    })
             },
             initCharts(){
                 let myChart = this.$echarts.init(document.getElementById('languageBar'))
+                let salary = this.chartData.salary
+                let language = this.chartData.language
+                //todo 颜色
                 let colorArray = [{
                         top: 'rgba(86,96,190,1)',
                         bottom: 'rgba(86,96,190,0)'
@@ -46,7 +66,7 @@
                         }
                     ]
                 let options={
-                    backgroundColor:'rgb(18,3,68)',
+                    backgroundColor:'lightCyan',
 
                     /* title: {
                        text: '世界人口总量',
@@ -78,7 +98,7 @@
                             show: true,
                             lineStyle: {
                                 color: '#1f3458',
-                                width: 2
+                                width: 1
                             }
                         },
                         axisTick: {
@@ -86,7 +106,7 @@
                         },
                         axisLabel: {
                             show: true,
-                            color: '#FFFFFF'
+                            color: '#14893f'
                         },
                         //分割线
                         splitNumber: 10,
@@ -111,15 +131,15 @@
                         },
                         axisLabel: {
                             show: true,
-                            color: '#FFFFFF'
+                            color: '#14893f'
                         },
-                        data: ['其他', '亚洲', '非洲', '欧洲', '美洲', '大洋洲']
+                        data: language
                     },
                     series: [{
                         name: '',
                         type: 'bar',
-                        data: [182, 234, 290, 104, 131, 630],
-                        barWidth: 50,
+                        data: salary,
+                        barWidth: 10,
                         label: {
                             normal: {
                                 show: true,
