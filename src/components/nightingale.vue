@@ -35,11 +35,11 @@
             },
             initCharts(){
                 let myChart = this.$echarts.init(document.getElementById('nightingale'))
-                let scale = this.chartData.scale
+                let scale = this.chartData.scale.reverse()
 
                 // let ratio = this.chartData.ratio
                 // let count = this.chartData.count
-                let JavSalary = this.chartData.JavSalary
+                let JavSalary = this.chartData.JavSalary.reverse()
 
                 let options={
                     backgroundColor: '#fff',
@@ -73,9 +73,9 @@
                         //起始角度，支持范围[0, 360]
                         startAngle: 0,
                         //饼图的半径，数组的第一项是内半径，第二项是外半径
-                        radius: [30, 250],
+                        radius: [40, 270],
                         //支持设置成百分比，设置成百分比时第一项是相对于容器宽度，第二项是相对于容器高度
-                        center: ['50%', '35%'],
+                        center: ['50%', '50%'],
                         //是否展示成南丁格尔图，通过半径区分数据大小。可选择两种模式：
                         // 'radius' 面积展现数据的百分比，半径展现数据的大小。
                         //  'area' 所有扇区面积相同，仅通过半径展现数据大小
@@ -190,10 +190,10 @@
                                     }
                                 },
                                 label: {
-                                    show: false
+                                    show: true
                                 },
                                 labelLine: {
-                                    show: false
+                                    show: true
                                 }
                             },
                             {
@@ -205,10 +205,10 @@
                                     }
                                 },
                                 label: {
-                                    show: false
+                                    show: true
                                 },
                                 labelLine: {
-                                    show: false
+                                    show: true
                                 }
                             },
                             {

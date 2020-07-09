@@ -179,7 +179,7 @@
                         data: arr,
                         z: 5
                     }],
-                    backgroundColor: "#17818b",
+                    backgroundColor: "lightCyan",
                 }
                 myChart.setOption(options)
             }

@@ -63,7 +63,7 @@
         background-color: #f9fafc;
     }
     .el-header, .el-footer {
-        background-color: #90f2ff;
+        background-color: lightseagreen;
         color: white;
         font-family: 微软雅黑,serif;
         text-align: left;
@@ -93,10 +93,6 @@
     .el-container:nth-child(7) .el-aside {
         line-height: 320px;
     }
-    .el-main{
-        background-color: #90f2ff
-    }
-    .el-card{
-        background-color: #283149;
-    }
+
+
 </style>

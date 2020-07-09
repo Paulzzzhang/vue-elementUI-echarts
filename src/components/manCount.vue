@@ -49,7 +49,7 @@
                             "color": "#fff"
                         }
                     },
-                    backgroundColor: "#14103c",
+                    backgroundColor: "darkCyan",
                     grid: {
                         "left": "20%",
                         "top": "10%",

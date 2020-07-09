@@ -117,7 +117,7 @@
                                 areaColor: '#87aa66',
                                 opacity: 1,
                                 //todo 修改颜色
-                                color: '#7098DA',
+                                color: 'darkCyan',
                                 borderWidth: 0.4,
                                 borderColor: '#000',
 
