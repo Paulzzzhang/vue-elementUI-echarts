@@ -681,9 +681,25 @@
         },
         methods:{
             getData(){
-                this.chartInit()
+                this.$axios
+                    .get('/job/jobAmounts')
+                    .then(response => {
+                        if(response.data.status === 1){
+                            this.data= response.data.body
+                            console.log(this.data)
+
+                            this.initCharts()
+                        }else{
+                            console.log("数据获取失败")
+                        }
+                        this.initCharts()}
+                    )
+
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    })
             },
-            chartInit(){
+            initCharts(){
                 let myChart = this.$echarts.init(document.getElementById('sunrise'))
                 let option = {
                     title: {
@@ -706,8 +722,8 @@
                         radius: [0, '95%'],
                         sort: null,
                         levels: [{}, {
-                            r0: '15%',
-                            r: '35%',
+                            r0: '20%',
+                            r: '40%',
                             itemStyle: {
                                 borderWidth: 2
                             },
@@ -715,14 +731,14 @@
                                 rotate: 'tangential'
                             }
                         }, {
-                            r0: '35%',
-                            r: '70%',
+                            r0: '40%',
+                            r: '80%',
                             label: {
                                 align: 'right'
                             }
                         }, {
-                            r0: '70%',
-                            r: '72%',
+                            r0: '80%',
+                            r: '83%',
                             label: {
                                 position: 'outside',
                                 padding: 3,

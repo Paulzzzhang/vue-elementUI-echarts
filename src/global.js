@@ -341,5 +341,11 @@ export default {
 
         }
 
+        Vue.prototype.style = function () {
+            return{
+
+            }
+        }
+
     }
 }

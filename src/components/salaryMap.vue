@@ -116,8 +116,8 @@
                             itemStyle: {
                                 areaColor: '#87aa66',
                                 opacity: 1,
-                                //todo修改颜色
-                                color: 'darkCyan',
+                                //todo 修改颜色
+                                color: '#7098DA',
                                 borderWidth: 0.4,
                                 borderColor: '#000',
 

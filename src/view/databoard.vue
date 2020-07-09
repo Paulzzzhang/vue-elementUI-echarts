@@ -63,7 +63,7 @@
         background-color: #f9fafc;
     }
     .el-header, .el-footer {
-        background-color: #2A384F;
+        background-color: #90f2ff;
         color: white;
         font-family: 微软雅黑,serif;
         text-align: left;
@@ -94,7 +94,7 @@
         line-height: 320px;
     }
     .el-main{
-        background-color: #000
+        background-color: #90f2ff
     }
     .el-card{
         background-color: #283149;
