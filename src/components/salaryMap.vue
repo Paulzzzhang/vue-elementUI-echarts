@@ -73,8 +73,10 @@
                             x: 'left',
                             top: "10",
                             textStyle: {
-                            color: '#000',
-                                fontSize: 20
+                                fontSize: 20,
+                                fontWeight: 600,
+                                fontFamily: 'siyuanheiti_Thin',
+                                color: '#3b8060'
                         }
                     },
                     tooltip: {

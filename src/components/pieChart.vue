@@ -9,7 +9,7 @@ export default {
   name: 'pieChart',
   data() {
     return {
-      title: '饼状图'
+
     }
   },
   mounted() {
@@ -38,10 +38,13 @@ export default {
       let data = this.chartData.data
       let options = {
         title: {
-          text: '饼图程序调用高亮示例',
+          text: '不同性质企业分布',
           x: 'center',
           textStyle: {
-            color: '#ffffff'
+            fontSize: 20,
+            fontWeight: 600,
+            fontFamily: 'siyuanheiti_Thin',
+            color: '#3b8060'
           }
         },
         tooltip: {

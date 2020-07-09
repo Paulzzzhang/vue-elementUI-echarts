@@ -68,6 +68,7 @@
         font-family: 微软雅黑,serif;
         text-align: left;
         line-height: 60px;
+        font-weight:600
     }
 
     .el-aside {

@@ -52,9 +52,10 @@
                         text: '热门行业不同学历对应薪资',
                         color: 'lightCyan',
                         textStyle: {
-                            fontWeight: 'normal',
-                            fontSize: 18,
-                            color: 'DarkCyan'
+                            fontSize: 20,
+                            fontWeight: 600,
+                            fontFamily: 'siyuanheiti_Thin',
+                            color: '#3b8060'
                         },
                         left: 20,
                         top: 20

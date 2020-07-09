@@ -97,7 +97,10 @@ export default {
         title: {
           text: '不同城市的行业分布',
           textStyle: {
-            color: '#226f69'
+            fontSize: 20,
+            fontWeight: 600,
+            fontFamily: 'siyuanheiti_Thin',
+            color: '#3b8060'
           },
           top: 10,
           left: 10

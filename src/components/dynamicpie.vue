@@ -38,14 +38,15 @@
 
                 let options= {
                     title: {
-                        text: "",
+                        text: "互联网行业岗位划分",
                         subtext: "",
                         left: "center",
                         textStyle: {
-                            color: "#fff",
+                            color: "darkCyan",
                             fontSize: 18
                         },
                     },
+                    center: ['50%','50%'],
 
                     backgroundColor: this.$echarts.graphic.RadialGradient(0, 0, 1, [{
                         offset: 0,

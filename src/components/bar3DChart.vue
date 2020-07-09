@@ -35,8 +35,8 @@ export default {
 					})
 		},
 		initCharts() {
-			let hours = ['初中', '高中', '大专', '本科','硕士','博士'];
-			let days = ['不限', '一年', '一到三年', '三到五年','五到十年','十年以上'];
+			let hours = ['初中', '高中', '大专', '本科','硕士'];
+			let days = ['不限', '一年', '一到三年', '三到五年','五到十年'];
 			let data = this.chartData.salary
 
 			let myChart = this.$echarts.init(document.getElementById('bar3DChart'))
@@ -51,7 +51,7 @@ export default {
 					},
 					top: 10,
 					left: 10,
-					subtext: '100万',
+
 					subtextStyle: {
 						fontSize: 16,
 						color: '#ffffff'
@@ -62,7 +62,7 @@ export default {
 				},
 				visualMap: {
 					show: true,
-					max: 50000,
+					max: 35000,
 					inRange: {
 						color:  ['lightGreen','#87aa66', '#eba438', 'orange', '#d94d4c','red']
 					}

@@ -66,7 +66,7 @@
                         }
                     ]
                 let options={
-                    backgroundColor:'lightCyan',
+                    backgroundColor:'lightBlue',
 
                     // title: {
                     //    text: '计算机各语言平均薪资',
@@ -75,6 +75,17 @@
                     //        color:"blue"
                     //     }
                     //  },
+                    title: {
+                        "text": "互联网行业不同语言排行",
+                        "left": "center",
+                        "top": 20,
+                        "textStyle": {
+                            fontSize: 20,
+                            fontWeight: 600,
+                            fontFamily: 'siyuanheiti_Thin',
+                            color: 'darkCyan'
+                        }
+                    },
                     tooltip: {
                         trigger: 'axis',
                         axisPointer: {

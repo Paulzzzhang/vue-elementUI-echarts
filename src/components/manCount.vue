@@ -46,7 +46,10 @@
                         left: "center",
                         y: "10",
                         textStyle: {
-                            "color": "#fff"
+                            fontSize: 18,
+                            fontWeight: 600,
+                            fontFamily: 'siyuanheiti_Thin',
+                            color: '#fff'
                         }
                     },
                     backgroundColor: "darkCyan",

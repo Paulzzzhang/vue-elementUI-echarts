@@ -50,7 +50,13 @@
                 let options = {
                     title: {
                         text: '各行业平均薪资',
-                        subtext: '数据来源于拉勾/58/51/猎聘'
+                        subtext: '数据来源于拉勾/58/51/猎聘',
+                        textStyle: {
+                            fontSize: 24,
+                            fontWeight: 600,
+                            fontFamily: 'siyuanheiti_Thin',
+                            color: '#3b8060'
+                        },
                     },
                     tooltip: {
                         trigger: 'axis',

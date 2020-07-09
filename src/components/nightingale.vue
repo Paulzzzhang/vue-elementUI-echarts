@@ -61,7 +61,10 @@
                         "left": "center",
                         "top": 20,
                         "textStyle": {
-                            "color": "darkCyan"
+                            fontSize: 20,
+                            fontWeight: 600,
+                            fontFamily: 'siyuanheiti_Thin',
+                            color: 'darkCyan'
                         }
                     },
                     calculable: true,

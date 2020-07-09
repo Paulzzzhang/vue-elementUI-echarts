@@ -111,6 +111,17 @@
                 let arr = new Array(topJobs.length)
                 arr.fill(100)
                 let options={
+                    title: {
+                        "text": "各地热门行业排行",
+                        "left": "20px",
+                        "top": 20,
+                        "textStyle": {
+                            fontSize: 18    ,
+                            fontWeight: 600,
+                            fontFamily: 'siyuanheiti_Thin',
+                            color: 'darkCyan'
+                        }
+                    },
                     tooltip: {
                         show: true
                     },

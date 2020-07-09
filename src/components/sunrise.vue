@@ -706,9 +706,10 @@
                         text: '不同类型岗位分布',
                         subtext: 'Source: /lagou/58job/51job/liepin',
                         textStyle: {
-                            fontSize: 20,
-                            fontFamily: 'Consolas',
-                            align: 'center'
+                            fontSize: 24,
+                            fontWeight: 600,
+                            fontFamily: 'siyuanheiti_Thin',
+                            color: '#3b8060'
                         },
                         subtextStyle: {
                             align: 'center'

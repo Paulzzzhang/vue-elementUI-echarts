@@ -133,7 +133,7 @@
     top: 110px;
     height: 500px;
     %table-style {
-      background-color: #01ddb2;
+      background-color: lightseagreen;
       width: 100%;
       height: 50px;
       table-layout: fixed;

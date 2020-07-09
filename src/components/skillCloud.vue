@@ -69,14 +69,24 @@
                 let myChart = this.$echarts.init(document.getElementById('skillCloud'))
                 let info = this.chartData
                 let options={
-
+                    title: {
+                        "text": "不同行业关键词",
+                        "left": "20px",
+                        "top": 20,
+                        "textStyle": {
+                            fontSize: 20,
+                            fontWeight: 600,
+                            fontFamily: 'siyuanheiti_Thin',
+                            color: 'darkCyan'
+                        }
+                    },
                     tooltip: {
                         show: true
                     },
                     series: [{
                         type: "wordCloud",
                         gridSize:6,
-                        shape:'circle',
+                        shape:'',
 
 
 

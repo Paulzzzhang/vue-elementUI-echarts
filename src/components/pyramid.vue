@@ -133,6 +133,7 @@
                     series: [
                         {
                             name: '学历占比',
+                            title: '不同行业学历占比',
                             type: 'pie',
                             radius: ['92%', '100%'],
                             clockWise: false,
