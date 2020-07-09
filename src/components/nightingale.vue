@@ -61,7 +61,7 @@
                         "left": "center",
                         "top": 20,
                         "textStyle": {
-                            "color": "#ccc"
+                            "color": "darkCyan"
                         }
                     },
                     calculable: true,

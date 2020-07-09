@@ -131,7 +131,7 @@
                             show: true
                         },
                         axisLabel: {
-                            color: '#fff',
+                            color: '#536dfe',
                             fontSize: 14
                         }
                     },

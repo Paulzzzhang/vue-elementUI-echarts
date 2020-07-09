@@ -15,8 +15,26 @@ export default {
                 value: '交通运输',
                 label: '交通运输'
             }, {
-                value: '教育',
-                label: '教育'
+                value: '教育业',
+                label: '教育业'
+            }, {
+                value: '新闻',
+                label: '新闻'
+            }, {
+                value: '汽车',
+                label: '汽车'
+            }, {
+                value: '化工',
+                label: '化工'
+            }, {
+                value: '服务业',
+                label: '服务业'
+            }, {
+                value: '文娱',
+                label: '文娱'
+            }, {
+                value: '医疗',
+                label: '医疗'
             }]
         }
         Vue.prototype.cityOption = function () {
