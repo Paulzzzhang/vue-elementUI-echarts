@@ -65,7 +65,8 @@
                 </template>
                 <el-menu-item-group v-model="value" @change="lineTo">
 
-                    <el-menu-item index="/InternetInfo">互联网行业</el-menu-item>
+                    <el-menu-item index="/InternetInfo/occupation">互联网岗位</el-menu-item>
+                    <el-menu-item index="/InternetInfo/language">互联网不同语言薪资排行</el-menu-item>
                 </el-menu-item-group>
             </el-submenu>
 
